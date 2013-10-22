@@ -1,5 +1,4 @@
 title: small red tile home
-date: 2012-03-04
 active: index
 
 <h1><span id="tile"></span>small red tile</h1>

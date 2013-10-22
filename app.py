@@ -9,10 +9,18 @@ pages = FlatPages(app)
 def index():
   return page('index')
 
+@app.route('/blog')
+def blog():
+  posts = [post for post in pages if 'published' in post.meta]
+  page = pages.get_or_404('blog')
+  return render_template('blog_listing.html', posts=posts, page=page)
+
 @app.route('/<path:path>/')
 def page(path):
   page = pages.get_or_404(path)
   return render_template('page.html', page=page)
+  
+
   
 if __name__ == "__main__":
   app.run(debug=True)
