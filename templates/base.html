@@ -9,10 +9,35 @@
     {% endblock css %}
 </head>
 <body>
-    <h1><a href="{{ url_for("index") }}">My site</a></h1>
-    <p>On page {{ page.meta.active }}</p>
+    
+    {% set menu_items = [
+        ('/index.html', 'index', 'home'),
+        ('/about.html', 'about', 'about'),
+        ('/consulting.html', 'consulting', 'consulting'),
+        ('/blog', 'blog', 'blog'),
+        ('/contact.html', 'contact', 'contact'),
+        ('https://github.com/marcpare?tab=repositories', 'github', 'github')
+      ] -%}
+    {% set active_page = page.meta.active_page|default('index')-%}
+
+    {% if active_page != "index" %}
+      <h2 class="title-small"><span id="tile"></span>small red tile</h2>
+    {% endif %}
+
+    <div class="left">      
+      <ul class="menu">
+      {% for href, id, caption in menu_items %}
+        <li {% if id == active_page %} class="active"{% endif %}>
+          <a href="{{ href|e }}">{{ caption|e }}</a></li>
+      {% endfor %}
+      </ul>
+    </div>
+    
+<div class="container">
 {% block content %}
-    <p>Default content to be displayed</p>
+    <p>Content goes here</p>
 {% endblock content %}
+</div>
+
 </body>
 </html>
