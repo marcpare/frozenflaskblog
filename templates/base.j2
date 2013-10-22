@@ -1,0 +1,103 @@
+<!doctype html>
+<!-- https://github.com/paulirish/html5-boilerplate/blob/master/index.html -->
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+  {% block starthead %}{% endblock starthead %}
+  
+
+  <title>{% block title %}{% endblock %}</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--  Mobile viewport optimized: j.mp/bplateviewport -->
+
+  {% block favicons %}
+  <!-- Place favicon.ico & apple-touch-icon.png
+        in the root of your domain and delete these references -->
+  <link rel="shortcut icon" href="{{ '/favicon.ico' }}">
+  <link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' }}">
+  {% endblock favicons %}
+
+  {% block css %}
+  <link rel="stylesheet" href="{{ 'css/main.css' }}">
+  <link rel="stylesheet" href="{{ 'css/syntax.css' }}">
+  {% endblock css %}
+
+  {% block headjs %}
+  <!-- All JavaScript at the bottom, except for Modernizr which
+        enables HTML5 elements & feature detects -->
+    <script src="{{ 'js/libs/modernizr-1.7.min.js' }}"></script>
+  {% endblock headjs %}
+  {% block endhead %}{% endblock endhead %}
+</head>
+<body id="">
+  
+  {% set menu_items = [
+      ('/index.html', 'index', 'home'),
+      ('/about.html', 'about', 'about'),
+      ('/consulting.html', 'consulting', 'consulting'),
+      ('/blog', 'blog', 'blog'),
+      ('/contact.html', 'contact', 'contact'),
+      ('https://github.com/marcpare?tab=repositories', 'github', 'github')
+    ] -%}
+  {% set active_page = active_page|default('index')-%}
+  
+  {% if active_page != "index" %}
+    <h2 class="title-small"><span id="tile"></span>small red tile</h2>
+  {% endif %}
+  
+  <div class="left">      
+    <ul class="menu">
+    {% for href, id, caption in menu_items %}
+      <li {% if id == active_page %} class="active"{% endif %}>
+        <a href="{{ href|e }}">{{ caption|e }}</a></li>
+    {% endfor %}
+    </ul>
+  </div>
+  
+  {% block content %}
+  <div class="container">
+      
+      
+      
+      {% block container %}
+      {% endblock container %}
+  </div> <!--! end of #container -->
+  <div class="footer">
+    
+    <div class="footer-separator">
+    {% for number in range(7) %}<span class="fs-{{ number }}"></span>{% endfor %}
+    </div>
+    
+    <p>What's a <span id="tile"></span>?</p>
+    <p>
+      It's a reminder. The tiniest detail can make a huge difference. Society is the sum of contributions of many people. Small is beautiful. 
+    </p>
+  </div>
+  {% endblock content%}
+  {% block js %}
+  <!-- Javascript at the bottom for fast page loading -->
+  {% block jquery %}
+  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
+  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.5.1.min.js">\x3C/script>')</script>
+  {% endblock jquery %}
+
+  {% block scripts %}
+  {% endblock scripts %}
+
+  <!--[if lt IE 7 ]>
+    <script src="js/libs/dd_belatedpng.js"></script>
+    <script>DD_belatedPNG.fix('img, .png_bg'); // Fix any <img> or .png_bg bg-images. Also, please read goo.gl/mZiyb </script>
+  <![endif]-->
+
+  {% block analytics %}
+  {% include "analytics.j2" %}
+  {% endblock analytics %}
+
+  {% endblock js %}
+</body>
+</html>
