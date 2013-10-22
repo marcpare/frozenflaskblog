@@ -12,6 +12,8 @@ def index():
 @app.route('/blog')
 def blog():
   posts = [post for post in pages if 'published' in post.meta]
+  posts = sorted(posts, reverse=True, 
+    key=lambda post: post.meta['published'])
   page = pages.get_or_404('blog')
   return render_template('blog_listing.html', posts=posts, page=page)
 
