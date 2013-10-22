@@ -7,7 +7,7 @@ pages = FlatPages(app)
 
 @app.route('/')
 def index():
-  return "Hello World"
+  return page('index')
 
 @app.route('/<path:path>/')
 def page(path):

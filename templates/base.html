@@ -2,7 +2,11 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>My site</title>
+    <title>{{ page.meta.title|default('small red tile') }}</title>
+    
+    {% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    {% endblock css %}
 </head>
 <body>
     <h1><a href="{{ url_for("index") }}">My site</a></h1>

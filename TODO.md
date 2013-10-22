@@ -1,6 +1,9 @@
 
 x Install flatpages
 x Demo metadata and templates from a flat page
+- Render the home page
+x Generate static CSS url
+x Serve static css
 - Render the blog entries, using attributes in the header
 - Render a blog entry
 - (Render the archives)
