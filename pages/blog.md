@@ -1,2 +1,3 @@
 title: small red tile home
-active: index
+active_page: blog
+visible: false

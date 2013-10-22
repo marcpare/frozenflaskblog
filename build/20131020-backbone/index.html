@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Difficult to Believe but Optimized</title>
+    
+    
+    <link rel="stylesheet" href="/static/css/main.css">
+    
+</head>
+<body>
+    
+    
+      <h2 class="title-small"><span id="tile"></span>small red tile</h2>
+    
+
+    <div class="left">      
+      <ul class="menu">
+      
+        <li >
+          <a href="/index">home</a></li>
+      
+        <li >
+          <a href="/about">about</a></li>
+      
+        <li >
+          <a href="/consulting">consulting</a></li>
+      
+        <li  class="active">
+          <a href="/blog">blog</a></li>
+      
+        <li >
+          <a href="/contact">contact</a></li>
+      
+        <li >
+          <a href="https://github.com/marcpare?tab=repositories">github</a></li>
+      
+      </ul>
+    </div>
+    
+<div class="container">
+
+    <p>Day 1 of studying backbonejs, and I found this gem in the source:</p>
+<pre>
+// A difficult-to-believe, but optimized internal dispatch function for
+// triggering events. Tries to keep the usual cases speedy (most internal
+// Backbone events have 3 arguments).
+var triggerEvents = function(events, args) {
+  var ev, i = -1, l = events.length, a1 = args[0], a2 = args[1], a3 = args[2];
+
+  switch (args.length) {
+    case 0: while (++i < l) (ev = events[i]).callback.call(ev.ctx); return;
+    case 1: while (++i < l) (ev = events[i]).callback.call(ev.ctx, a1); return;
+    case 2: while (++i < l) (ev = events[i]).callback.call(ev.ctx, a1, a2); return;
+    case 3: while (++i < l) (ev = events[i]).callback.call(ev.ctx, a1, a2, a3); return;
+    default: while (++i < l) (ev = events[i]).callback.apply(ev.ctx, args);
+  }
+};
+</pre>
+
+<p><code>(ev = events[i])</code> is a nifty trick to save a few characters (and make the code more clear).</p>
+<p>Why does this function exist at all?</p>
+<p>Looking carefully, it seems that the function attempts to use <code>call</code> rather than <code>apply</code>, only using <code>apply</code> as a last resort.</p>
+<p>I think it's because <code>call</code> is faster than <code>apply</code>?</p>
+<p><img alt="Call vs Apply test results" src="/static/images/20131020-backboneperf.png" /></p>
+<p><a href="http://jsperf.com/test-call-vs-apply/34">Test on jsperf</a></p>
+<p>Cool stuff, shows just how much real-world Javascript performance is a dark art.</p>
+
+</div>
+
+<div class="footer">
+  <div class="footer-separator">
+  <span class="fs-0"></span><span class="fs-1"></span><span class="fs-2"></span><span class="fs-3"></span><span class="fs-4"></span><span class="fs-5"></span><span class="fs-6"></span>
+  </div>
+  
+  <p>What's a <span id="tile"></span>?</p>
+  <p>
+    It's a reminder. The tiniest detail can make a huge difference. Society is the sum of contributions of many people. Small is beautiful. 
+  </p>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-43189862-2', 'smallredtile.com');
+  ga('send', 'pageview');
+</script>
+
+
+</body>
+</html>

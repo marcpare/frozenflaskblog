@@ -4,6 +4,8 @@ active_page: about
 About
 =====
 
+A few notes on the mission and vision underlying _small red tile_.
+
 In 2008, IBM flew me and the other top 300 collegiate algorithm programmers in the world to a secluded castle in Banff, Alberta to compete in the world finals of the ACM International Collegiate Programming Competition.
 
 Before the contest, their top brass tried to convince us that we should be working on Digital Rights Management (DRM). The technical work sounded top-notch, but something felt very wrong, I couldn't justify applying expertise in the wonderful new digital world to artificially protecting a crusty, old, and dying industry.

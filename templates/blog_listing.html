@@ -3,7 +3,15 @@
 {% block content %}
 
   {% for post in posts %}
-    <p>{{ url_for("page", path=post.path) }} {{post.title}} </p>
+  
+    <article class="post">
+    <h3 class="post-title">
+      <a href="{{ url_for("page", path=post.path) }}">{{ post.title }}</a>
+      <span class="date">{{ post.meta.published.strftime('%b %d') }}</span>
+    </h3>
+
+    {{ post.html|safe }}
+    </article>
   {% endfor %}
   
 {% endblock content %}

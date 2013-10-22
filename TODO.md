@@ -5,9 +5,10 @@ x Demo metadata and templates from a flat page
 x Generate static CSS url
 x Serve static css
 x menu and foot
-- rest of the pages
-- Render the blog entries, using attributes in the header
-- Render a blog entry
+x rest of the pages
+x Render the blog entries, using attributes in the header
+x Render a blog entry
+- Analytics
 - (Render the archives)
 
 - How do you document the dependencies for a python app for easy install?
