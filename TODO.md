@@ -7,3 +7,9 @@ x Demo metadata and templates from a flat page
 
 - How do you document the dependencies for a python app for easy install?
 - Use virtualenv?
+
+Config for downloading the site with frozen flask:
+
+https://nicolas.perriault.net/code/2012/dead-easy-yet-powerful-static-website-generator-with-flask/
+
+http://pythonhosted.org/Flask-FlatPages/
