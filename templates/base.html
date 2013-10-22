@@ -11,11 +11,11 @@
 <body>
     
     {% set menu_items = [
-        ('/index.html', 'index', 'home'),
-        ('/about.html', 'about', 'about'),
-        ('/consulting.html', 'consulting', 'consulting'),
+        ('/index', 'index', 'home'),
+        ('/about', 'about', 'about'),
+        ('/consulting', 'consulting', 'consulting'),
         ('/blog', 'blog', 'blog'),
-        ('/contact.html', 'contact', 'contact'),
+        ('/contact', 'contact', 'contact'),
         ('https://github.com/marcpare?tab=repositories', 'github', 'github')
       ] -%}
     {% set active_page = page.meta.active_page|default('index')-%}
