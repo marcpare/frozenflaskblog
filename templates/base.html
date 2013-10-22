@@ -39,5 +39,15 @@
 {% endblock content %}
 </div>
 
+<div class="footer">
+  <div class="footer-separator">
+  {% for number in range(7) %}<span class="fs-{{ number }}"></span>{% endfor %}
+  </div>
+  
+  <p>What's a <span id="tile"></span>?</p>
+  <p>
+    It's a reminder. The tiniest detail can make a huge difference. Society is the sum of contributions of many people. Small is beautiful. 
+  </p>
+</div>
 </body>
 </html>
