@@ -1,58 +1,32 @@
-<!doctype html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>small red tile home</title>
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>
+        small red tile rss
+    </title>
     
-    
-    <link rel="stylesheet" href="/static/css/main.css">
-    
-</head>
-<body>
-    
-    
-      <h2 class="title-small"><span id="tile"></span>small red tile</h2>
+    <link href="" rel="self" />
     
 
-    <div class="left">      
-      <ul class="menu">
-      
-        <li >
-          <a href="/index">home</a></li>
-      
-        <li >
-          <a href="/about">about</a></li>
-      
-        <li >
-          <a href="/consulting">consulting</a></li>
-      
-        <li  class="active">
-          <a href="/blog">blog</a></li>
-      
-        <li >
-          <a href="/contact">contact</a></li>
-      
-        <li >
-          <a href="https://github.com/marcpare?tab=repositories">github</a></li>
-      
-      </ul>
-      <!--
-      <div class="rss"><a href="/atom.xml">RSS</a></div>
-      -->
-    </div>
     
-<div class="container">
+    <link href="http://www.smallredtile.com"/>
+    
 
+    
+    
 
-  
-  
-    <article class="post">
-    <h3 class="post-title">
-      <a href="/20131026-todomvc/">Nice Experience with TodoMVC</a>
-      <span class="date">Oct 26</span>
-    </h3>
+    <updated></updated>
 
-    <p><img alt="TodoMVC logo" src="/static/images/20131026-todomvc.png" /></p>
+    
+        <entry>
+            <title type="html">Nice Experience with TodoMVC</title>
+            <author><name></name></author>
+            <link href="/20131026-todomvc/"/>
+            <updated></updated>
+            <published></published>
+            <id>/20131026-todomvc/</id>
+            
+            <content type="html">
+              <p><img alt="TodoMVC logo" src="/static/images/20131026-todomvc.png" /></p>
 <p>I learned a style tip about prototypal inheritance a few days ago from my study of BackboneJS, and I got to encounter the friendly folks behind TodoMVC.</p>
 <p>I noticed a parameter that wasn't strictly necessary to the behavior of a function.</p>
 <p>Here are the functions:</p>
@@ -69,16 +43,19 @@ filterAll: function(){ app.todos.each(this.filterOne); }
 <p>I received a reply to my filed issue in less than a few hours. <a href="https://twitter.com/passy">@passy</a> let me know that, while not strictly necessary, passing in the extra <code>this</code> helps by keeping the current object around in case the <code>filterOne</code> function needs it in the future. </p>
 <p>This sort of situation is not one that I have encountered in object-oriented programming, where you can't reassign the context of a function. In Javascript, this is really easy and, as I found out, something you encounter right away.</p>
 <p>Do check out <a href="https://github.com/tastejs/todomvc">TodoMVC</a> if you're poking around modern Javascript frameworks. There is nothing like looking at real implementations. They responded to my issue filing right away, and I've learned a lot from their code so far.</p>
-    </article>
-  
-  
-    <article class="post">
-    <h3 class="post-title">
-      <a href="/20131026-norman/">How Norman Borlaug Worked</a>
-      <span class="date">Oct 26</span>
-    </h3>
-
-    <p><img alt="Borlaug in a field" src="/static/images/20131026-borlaug.gif" /></p>
+            </content>
+        </entry>
+    
+        <entry>
+            <title type="html">How Norman Borlaug Worked</title>
+            <author><name></name></author>
+            <link href="/20131026-norman/"/>
+            <updated></updated>
+            <published></published>
+            <id>/20131026-norman/</id>
+            
+            <content type="html">
+              <p><img alt="Borlaug in a field" src="/static/images/20131026-borlaug.gif" /></p>
 <p>(image from <a href="http://www.normanborlaug.org/">Norman Borlaug Heritage Foundation</a>) </p>
 <p>Norman Ernest Borlaug was an American agronomist, humanitarian and Nobel laureate who has been called "The Man Who Saved A Billion Lives". (<a href="http://en.wikipedia.org/wiki/Norman_Borlaug">wiki</a>)</p>
 <p>How did Dr. Borlaug do about his work? He wasn't the typical stodgy scientist or reclusive nerd:</p>
@@ -90,16 +67,19 @@ filterAll: function(){ app.todos.each(this.filterOne); }
 <p>The scientist is a privileged person, the man who should lead us out of the wilderness of static, unproductive agriculture, and yet by this apathy and failure to exercise his unique vision, he keeps us in the swamp of despair.</p>
 <p><em>The scientist fears change because he is in a relatively privileged position in his own society.</em> If there is no breakthrough in yield, he will not be criticized. But if he makes a recommendation and something goes wrong, he may lose his job.</p>
 </blockquote>
-    </article>
-  
-  
-    <article class="post">
-    <h3 class="post-title">
-      <a href="/20131023-battery/">Macbook Air Battery Life</a>
-      <span class="date">Oct 23</span>
-    </h3>
-
-    <p>John Siracusa's <a href="http://arstechnica.com/apple/2013/10/os-x-10-9/18/">monster OS X upgrade review</a> just landed, and it doesn't disappoint.</p>
+            </content>
+        </entry>
+    
+        <entry>
+            <title type="html">Macbook Air Battery Life</title>
+            <author><name></name></author>
+            <link href="/20131023-battery/"/>
+            <updated></updated>
+            <published></published>
+            <id>/20131023-battery/</id>
+            
+            <content type="html">
+              <p>John Siracusa's <a href="http://arstechnica.com/apple/2013/10/os-x-10-9/18/">monster OS X upgrade review</a> just landed, and it doesn't disappoint.</p>
 <p>The most important new change for me is battery life. Sounds boring, right?</p>
 <blockquote>
 <p>And yet we all find big increases in battery life attractive, sometimes even revelatory, once we experience them. New MacBook Air owners have been giddily posting pictures of their battery status menu and explaining how it has changed their habits and, in some tiny way, their lives.</p>
@@ -110,16 +90,19 @@ filterAll: function(){ app.todos.each(this.filterOne); }
 <p>How much of the success and failure of a software project is determined by the communication between client and developer? </p>
 <p>I've found even just small improvements in communication have dramatic impacts on the joy and success of software projects. So, for me, better battery life translates to joy and success.</p>
 <p>I hit upgrade right away.</p>
-    </article>
-  
-  
-    <article class="post">
-    <h3 class="post-title">
-      <a href="/20131022-dore/">Gustave Doré</a>
-      <span class="date">Oct 22</span>
-    </h3>
-
-    <p><img alt="The Council of Rate" src="/static/images/20131022-rats.jpg" />
+            </content>
+        </entry>
+    
+        <entry>
+            <title type="html">Gustave Doré</title>
+            <author><name></name></author>
+            <link href="/20131022-dore/"/>
+            <updated></updated>
+            <published></published>
+            <id>/20131022-dore/</id>
+            
+            <content type="html">
+              <p><img alt="The Council of Rate" src="/static/images/20131022-rats.jpg" />
 (from <a href="http://en.wikipedia.org/wiki/Gustave_Dor%C3%A9">Wikipedia</a>)</p>
 <p>Gustave Doré was the most popular illustrator of the the 1800s. He was extraordinarily prolific and commercially successful.</p>
 <p>He fits the pattern of superhuman inborn talent finding just the right environment to flourish.</p>
@@ -130,16 +113,19 @@ filterAll: function(){ app.todos.each(this.filterOne); }
 </blockquote>
 <p>(from <a href="http://www.antiquemapsandprints.com/gustave-dore.htm">Mr Dan Malan</a>)</p>
 <p>I love stories like this for a good dose of ego-check. </p>
-    </article>
-  
-  
-    <article class="post">
-    <h3 class="post-title">
-      <a href="/20131020-backbone/">Difficult to Believe but Optimized</a>
-      <span class="date">Oct 20</span>
-    </h3>
-
-    <p>Day 1 of studying backbonejs, and I found this gem in the source:</p>
+            </content>
+        </entry>
+    
+        <entry>
+            <title type="html">Difficult to Believe but Optimized</title>
+            <author><name></name></author>
+            <link href="/20131020-backbone/"/>
+            <updated></updated>
+            <published></published>
+            <id>/20131020-backbone/</id>
+            
+            <content type="html">
+              <p>Day 1 of studying backbonejs, and I found this gem in the source:</p>
 <pre>
 // A difficult-to-believe, but optimized internal dispatch function for
 // triggering events. Tries to keep the usual cases speedy (most internal
@@ -164,27 +150,33 @@ var triggerEvents = function(events, args) {
 <p><img alt="Call vs Apply test results" src="/static/images/20131020-backboneperf.png" /></p>
 <p><a href="http://jsperf.com/test-call-vs-apply/34">Test on jsperf</a></p>
 <p>Cool stuff, shows just how much real-world Javascript performance is a dark art.</p>
-    </article>
-  
-  
-    <article class="post">
-    <h3 class="post-title">
-      <a href="/20131018-kentaro/">Kentaro Toyama The ICT4D Jester</a>
-      <span class="date">Oct 17</span>
-    </h3>
-
-    <p>Kentaro's blog, <a href="http://blog.ict4djester.org/">The ICT4D Jester</a> breaks down humanitarian efforts involving computers, internet, and devices. He founded and ran Microsoft Research India but pulls no punches in critiquing technology's role in aid work. </p>
+            </content>
+        </entry>
+    
+        <entry>
+            <title type="html">Kentaro Toyama The ICT4D Jester</title>
+            <author><name></name></author>
+            <link href="/20131018-kentaro/"/>
+            <updated></updated>
+            <published></published>
+            <id>/20131018-kentaro/</id>
+            
+            <content type="html">
+              <p>Kentaro's blog, <a href="http://blog.ict4djester.org/">The ICT4D Jester</a> breaks down humanitarian efforts involving computers, internet, and devices. He founded and ran Microsoft Research India but pulls no punches in critiquing technology's role in aid work. </p>
 <iframe width="640" height="360" src="//www.youtube.com/embed/cxutDM2r534?feature=player_embedded" frameborder="0" allowfullscreen></iframe>
-    </article>
-  
-  
-    <article class="post">
-    <h3 class="post-title">
-      <a href="/20131017-jung/">Carl Jung&#39;s Red Book</a>
-      <span class="date">Oct 15</span>
-    </h3>
-
-    <p><img alt="Jung's Red Book" src="/static/images/20131015jungredbook.jpg" /></p>
+            </content>
+        </entry>
+    
+        <entry>
+            <title type="html">Carl Jung&#39;s Red Book</title>
+            <author><name></name></author>
+            <link href="/20131017-jung/"/>
+            <updated></updated>
+            <published></published>
+            <id>/20131017-jung/</id>
+            
+            <content type="html">
+              <p><img alt="Jung's Red Book" src="/static/images/20131015jungredbook.jpg" /></p>
 <p>I keep running into Jung: in Joseph Campbell's books, <em>The Magic Mountain</em>, and in Rockefeller's biography <em>Titan</em>. I didn't think much at first, but the more I learn, the more bizarre his life and work turns out to be.</p>
 <p>The Red Book is one of his manuscripts, 205 pages long, filled with illustrations of his 'inner images':</p>
 <blockquote>
@@ -193,34 +185,7 @@ var triggerEvents = function(events, args) {
 <p>from <a href="http://en.wikipedia.org/wiki/Red_Book_(Jung)">Wikipedia</a></p>
 <p>Picture from this review that's now on my reading list : <a href="http://www.nytimes.com/2009/09/20/magazine/20jung-t.html">http://www.nytimes.com/2009/09/20/magazine/20jung-t.html
 </a></p>
-    </article>
-  
-  
-
-</div>
-
-<div class="footer">
-  <div class="footer-separator">
-  <span class="fs-0"></span><span class="fs-1"></span><span class="fs-2"></span><span class="fs-3"></span><span class="fs-4"></span><span class="fs-5"></span><span class="fs-6"></span>
-  </div>
-  
-  <p>What's a <span id="tile"></span>?</p>
-  <p>
-    It's a reminder. The tiniest detail can make a huge difference. Society is the sum of contributions of many people. Small is beautiful. 
-  </p>
-</div>
-
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-43189862-2', 'smallredtile.com');
-  ga('send', 'pageview');
-</script>
-
-
-</body>
-</html>
+            </content>
+        </entry>
+    
+</feed>

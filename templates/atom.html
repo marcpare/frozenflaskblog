@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>
+        {% block title %}{{ page.meta.title }}{% endblock %}
+    </title>
+    {% block self_url %}
+    <link href="{{ page.url }}" rel="self" />
+    {% endblock %}
+
+    {% block site_url %}
+    <link href="http://www.smallredtile.com"/>
+    {% endblock %}
+
+    {% block feed_extra %}
+    {% endblock %}
+
+    <updated>{{ time_now }}</updated>
+
+    {% for post in posts %}
+        <entry>
+            <title type="html">{{ post.meta.title|forceescape }}</title>
+            <author><name>{{ post.meta.author }}</name></author>
+            <link href="{{ url_for("page", path=post.path) }}"/>
+            <updated>{{ post.meta.created }}</updated>
+            <published>{{ post.meta.created }}</published>
+            <id>{{ url_for("page", path=post.path) }}</id>
+            
+            <content type="html">
+              {{ post.html|safe }}
+            </content>
+        </entry>
+    {% endfor %}
+</feed>

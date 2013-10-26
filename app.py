@@ -12,6 +12,14 @@ freezer = Freezer(app)
 def index():
   return page('index')
 
+@app.route('/atom.xml')
+def atom():
+  posts = [post for post in pages if 'published' in post.meta]
+  posts = sorted(posts, reverse=True, 
+    key=lambda post: post.meta['published'])
+  page = pages.get_or_404('atom')
+  return render_template('atom.html', posts=posts, page=page)
+
 @app.route('/blog')
 def blog():
   posts = [post for post in pages if 'published' in post.meta]
