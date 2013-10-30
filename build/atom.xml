@@ -18,6 +18,26 @@
 
     
         <entry>
+            <title type="html">NY Times - A Game of Shark and Minnow</title>
+            <author><name></name></author>
+            <link href="/20131017-sharkandminnow/"/>
+            <updated></updated>
+            <published></published>
+            <id>/20131017-sharkandminnow/</id>
+            
+            <content type="html">
+              <p><img alt="Screen clip from NY Times" src="/static/images/20131027-shark.png" /></p>
+<p>The latest piece in digital narrative from the creative desks at the NY Times about "the world's most surreal fishing camp." <a href="http://www.nytimes.com/newsgraphics/2013/10/27/south-china-sea/?hp">A Game of Shark and Minnow</a></p>
+<p>Lots of gems in this story: politics, Asia, geography, history, fishing, technology, economics, and more. The screen clip above is from a section that describes the ingenuity of people on the marooned boat.</p>
+<blockquote>
+<p>They made spearfishing guns from a piece of wood, a bolt repurposed as a trigger and two pieces of rubber for propulsion</p>
+</blockquote>
+<p>The notes on geo-political strategy use cabbage, salami, big bellies, and forest growth as metaphors.</p>
+<p>The source code isn't minified or obfuscated in case you're curious about how this sort of visualization gets built.</p>
+            </content>
+        </entry>
+    
+        <entry>
             <title type="html">Nice Experience with TodoMVC</title>
             <author><name></name></author>
             <link href="/20131026-todomvc/"/>
@@ -58,7 +78,7 @@ filterAll: function(){ app.todos.each(this.filterOne); }
               <p><img alt="Borlaug in a field" src="/static/images/20131026-borlaug.gif" /></p>
 <p>(image from <a href="http://www.normanborlaug.org/">Norman Borlaug Heritage Foundation</a>) </p>
 <p>Norman Ernest Borlaug was an American agronomist, humanitarian and Nobel laureate who has been called "The Man Who Saved A Billion Lives". (<a href="http://en.wikipedia.org/wiki/Norman_Borlaug">wiki</a>)</p>
-<p>How did Dr. Borlaug do about his work? He wasn't the typical stodgy scientist or reclusive nerd:</p>
+<p>How did Dr. Borlaug go about his work? He wasn't the typical stodgy scientist or reclusive nerd:</p>
 <blockquote>
 <p>I needed to be a scrambling quarterback, to dart and weave and grab each chance that showed up in front of me. I couldn't know in advance what would appear, let alone how I'd respond.</p>
 </blockquote>
