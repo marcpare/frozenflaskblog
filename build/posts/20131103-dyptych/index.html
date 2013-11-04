@@ -2,11 +2,12 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Difficult to Believe but Optimized</title>
+    <title>Diptychs, the Ancient iPads</title>
     
     
     <link rel="stylesheet" href="/static/css/main.css">
     
+    <link rel="shortcut icon" href="/static/favicon.ico" />
 </head>
 <body>
     
@@ -43,31 +44,25 @@
     
 <div class="container">
 
-    <p>Day 1 of studying backbonejs, and I found this gem in the source:</p>
-<pre>
-// A difficult-to-believe, but optimized internal dispatch function for
-// triggering events. Tries to keep the usual cases speedy (most internal
-// Backbone events have 3 arguments).
-var triggerEvents = function(events, args) {
-  var ev, i = -1, l = events.length, a1 = args[0], a2 = args[1], a3 = args[2];
-
-  switch (args.length) {
-    case 0: while (++i < l) (ev = events[i]).callback.call(ev.ctx); return;
-    case 1: while (++i < l) (ev = events[i]).callback.call(ev.ctx, a1); return;
-    case 2: while (++i < l) (ev = events[i]).callback.call(ev.ctx, a1, a2); return;
-    case 3: while (++i < l) (ev = events[i]).callback.call(ev.ctx, a1, a2, a3); return;
-    default: while (++i < l) (ev = events[i]).callback.apply(ev.ctx, args);
-  }
-};
-</pre>
-
-<p><code>(ev = events[i])</code> is a nifty trick to save a few characters (and make the code more clear).</p>
-<p>Why does this function exist at all?</p>
-<p>Looking carefully, it seems that the function attempts to use <code>call</code> rather than <code>apply</code>, only using <code>apply</code> as a last resort.</p>
-<p>I think it's because <code>call</code> is faster than <code>apply</code>?</p>
-<p><img alt="Call vs Apply test results" src="/static/images/20131020-backboneperf.png" /></p>
-<p><a href="http://jsperf.com/test-call-vs-apply/34">Test on jsperf</a></p>
-<p>Cool stuff, shows just how much real-world Javascript performance is a dark art.</p>
+<article class="post">
+  <h3 class="post-title">
+    Diptychs, the Ancient iPads
+    <span class="date">Nov 03</span>
+  </h3>
+  <p><img alt="Tablet" src="/static/images/20131102-tablet.jpg" /></p>
+<p>An ancient iPad?</p>
+<p>Sort of. It's a diptych – a hinged device with two wax-coated plates used for temporary notes by scribes.</p>
+<p>The really strange thing is that wax tablets were used for writing all the way until the 19th century (for fish markets in France, apparently).</p>
+<p>It makes sense, what other writing surface has these traits:</p>
+<ol>
+<li>requires no electricity</li>
+<li>wipes clean by hand</li>
+<li>waterproof</li>
+</ol>
+<p>Modern electronics offer stunning capabilities, but can you imagine an iPad ever fulfilling all three of these design criteria? As advanced as our algorithms and electronics get, there's probably always going to be a situation that calls for a wax tablet.</p>
+<p>While this is a bit of an exaggeration, it does illustrate that when you zoom out of the focus on consumer software and electronics, there are quite a stunning <em>variety</em> of demands of technological capabilities.</p>
+<p>(from Wiki <a href="http://en.wikipedia.org/wiki/Diptych">Diptych</a> and <a href="http://en.wikipedia.org/wiki/Wax_tablet#cite_note-13">Wax Tablet</a>)</p>
+</article>
 
 </div>
 

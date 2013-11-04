@@ -2,11 +2,12 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Nice Experience with TodoMVC</title>
+    <title>Carl Jung&#39;s Red Book</title>
     
     
     <link rel="stylesheet" href="/static/css/main.css">
     
+    <link rel="shortcut icon" href="/static/favicon.ico" />
 </head>
 <body>
     
@@ -43,23 +44,21 @@
     
 <div class="container">
 
-    <p><img alt="TodoMVC logo" src="/static/images/20131026-todomvc.png" /></p>
-<p>I learned a style tip about prototypal inheritance a few days ago from my study of BackboneJS, and I got to encounter the friendly folks behind TodoMVC.</p>
-<p>I noticed a parameter that wasn't strictly necessary to the behavior of a function.</p>
-<p>Here are the functions:</p>
-<pre>
-filterOne: function(todo){ todo.trigger('visible'); }
-filterAll: function(){ app.todos.each(this.filterOne, this); }
-</pre>
-
-<p>Here is the change you can make to <code>filterAll</code> without breaking the behavior:</p>
-<pre>
-filterAll: function(){ app.todos.each(this.filterOne); }
-</pre>
-
-<p>I received a reply to my filed issue in less than a few hours. <a href="https://twitter.com/passy">@passy</a> let me know that, while not strictly necessary, passing in the extra <code>this</code> helps by keeping the current object around in case the <code>filterOne</code> function needs it in the future. </p>
-<p>This sort of situation is not one that I have encountered in object-oriented programming, where you can't reassign the context of a function. In Javascript, this is really easy and, as I found out, something you encounter right away.</p>
-<p>Do check out <a href="https://github.com/tastejs/todomvc">TodoMVC</a> if you're poking around modern Javascript frameworks. There is nothing like looking at real implementations. They responded to my issue filing right away, and I've learned a lot from their code so far.</p>
+<article class="post">
+  <h3 class="post-title">
+    Carl Jung&#39;s Red Book
+    <span class="date">Oct 15</span>
+  </h3>
+  <p><img alt="Jung's Red Book" src="/static/images/20131015jungredbook.jpg" /></p>
+<p>I keep running into Jung: in Joseph Campbell's books, <em>The Magic Mountain</em>, and in Rockefeller's biography <em>Titan</em>. I didn't think much at first, but the more I learn, the more bizarre his life and work turns out to be.</p>
+<p>The Red Book is one of his manuscripts, 205 pages long, filled with illustrations of his 'inner images':</p>
+<blockquote>
+<p>The years... when I pursued the inner images, were the most important time of my life. Everything else is to be derived from this. It began at that time, and the later details hardly matter anymore. My entire life consisted in elaborating what had burst forth from the unconscious and flooded me like an enigmatic stream and threatened to break me. That was the stuff and material for more than only one life. Everything later was merely the outer classification, scientific elaboration, and the integration into life. But the numinous beginning, which contained everything, was then.</p>
+</blockquote>
+<p>from <a href="http://en.wikipedia.org/wiki/Red_Book_(Jung)">Wikipedia</a></p>
+<p>Picture from this review that's now on my reading list : <a href="http://www.nytimes.com/2009/09/20/magazine/20jung-t.html">http://www.nytimes.com/2009/09/20/magazine/20jung-t.html
+</a></p>
+</article>
 
 </div>
 

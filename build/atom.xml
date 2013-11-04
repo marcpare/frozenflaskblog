@@ -18,12 +18,37 @@
 
     
         <entry>
-            <title type="html">Emacs Keybindings in OS X</title>
+            <title type="html">Diptychs, the Ancient iPads</title>
             <author><name></name></author>
-            <link href="/20131102-emacs/"/>
+            <link href="/posts/20131103-dyptych/"/>
             <updated></updated>
             <published></published>
-            <id>/20131102-emacs/</id>
+            <id>/posts/20131103-dyptych/</id>
+            
+            <content type="html">
+              <p><img alt="Tablet" src="/static/images/20131102-tablet.jpg" /></p>
+<p>An ancient iPad?</p>
+<p>Sort of. It's a diptych – a hinged device with two wax-coated plates used for temporary notes by scribes.</p>
+<p>The really strange thing is that wax tablets were used for writing all the way until the 19th century (for fish markets in France, apparently).</p>
+<p>It makes sense, what other writing surface has these traits:</p>
+<ol>
+<li>requires no electricity</li>
+<li>wipes clean by hand</li>
+<li>waterproof</li>
+</ol>
+<p>Modern electronics offer stunning capabilities, but can you imagine an iPad ever fulfilling all three of these design criteria? As advanced as our algorithms and electronics get, there's probably always going to be a situation that calls for a wax tablet.</p>
+<p>While this is a bit of an exaggeration, it does illustrate that when you zoom out of the focus on consumer software and electronics, there are quite a stunning <em>variety</em> of demands of technological capabilities.</p>
+<p>(from Wiki <a href="http://en.wikipedia.org/wiki/Diptych">Diptych</a> and <a href="http://en.wikipedia.org/wiki/Wax_tablet#cite_note-13">Wax Tablet</a>)</p>
+            </content>
+        </entry>
+    
+        <entry>
+            <title type="html">Emacs Keybindings in OS X</title>
+            <author><name></name></author>
+            <link href="/posts/20131102-emacs/"/>
+            <updated></updated>
+            <published></published>
+            <id>/posts/20131102-emacs/</id>
             
             <content type="html">
               <p>Some fancy, very simple shortcuts that make a huge difference in text editing productivity.</p>
@@ -50,10 +75,10 @@
         <entry>
             <title type="html">Apollo Engineering, Science, and Operations Documentation</title>
             <author><name></name></author>
-            <link href="/20131031-apollo/"/>
+            <link href="/posts/20131031-apollo/"/>
             <updated></updated>
             <published></published>
-            <id>/20131031-apollo/</id>
+            <id>/posts/20131031-apollo/</id>
             
             <content type="html">
               <p><img alt="Clip from Apollo docs" src="/static/images/20131031-apollo.png" /></p>
@@ -64,33 +89,12 @@
         </entry>
     
         <entry>
-            <title type="html">Backbone Fundamentals Library Example without the Yaks</title>
-            <author><name></name></author>
-            <link href="/20131029-yak/"/>
-            <updated></updated>
-            <published></published>
-            <id>/20131029-yak/</id>
-            
-            <content type="html">
-              <p>A few more days into my BackboneJS study, and I have been working through a bit of the <a href="http://www.amazon.com/Developing-Backbone-js-Applications-Addy-Osmani/dp/1449328253">Backbone Fundamentals book</a>. You can read it online for free on <a href="https://github.com/addyosmani/backbone-fundamentals">the author's Github</a>.</p>
-<p>I did find myself stuck doing some yak shaving. </p>
-<blockquote>
-<p>yak shaving is what you are doing when you're doing some stupid, fiddly little task that bears no obvious relationship to what you're supposed to be working on, but yet a chain of twelve causal relations links what you're doing to the original meta-task. <a href="http://projects.csail.mit.edu/gsb/old-archive/gsb-archive/gsb2000-02-11.html">(source)</a></p>
-</blockquote>
-<p>In this case, the yak was Mongodb, and shaving it involved debugging its broken installer on my recently updated Macbook. After a half hour of this, I gave up and ported the API in the exercise to use a tiny file-based data store called <a href="https://github.com/jtsage/nodejs-microdb">MicroDB</a>.</p>
-<p>MicroDB was less than 200 lines of code, doesn't seem to have been updated in a year, and did exactly as much as I needed it to. It took about 10 minutes to port the code. </p>
-<p>I uploaded the ported code to my Github accounts. There may be some sharp edges, but it implements all the major features (add, edit, delete) <a href="https://github.com/marcpare/backbone-fundamental-library-feweryaks">Github</a></p>
-<p>I am quite curious now how you would go about building a NodeJS app with a file-based data store. This is a fantastically useful pattern for prototyping or smaller sites. I couldn't find any simple, convenient ways to do this. I'll be on the lookout. </p>
-            </content>
-        </entry>
-    
-        <entry>
             <title type="html">Sharp Enough to See Through Color</title>
             <author><name></name></author>
-            <link href="/20131029-bird/"/>
+            <link href="/posts/20131029-bird/"/>
             <updated></updated>
             <published></published>
-            <id>/20131029-bird/</id>
+            <id>/posts/20131029-bird/</id>
             
             <content type="html">
               <p><img alt="Birds" src="/static/images/20131029-bird1.png" />
@@ -109,12 +113,33 @@ Louis Agassiz Fuertes. His bird observations are famous:</p>
         </entry>
     
         <entry>
-            <title type="html">NY Times - A Game of Shark and Minnow</title>
+            <title type="html">Backbone Fundamentals Library Example without the Yaks</title>
             <author><name></name></author>
-            <link href="/20131017-sharkandminnow/"/>
+            <link href="/posts/20131029-yak/"/>
             <updated></updated>
             <published></published>
-            <id>/20131017-sharkandminnow/</id>
+            <id>/posts/20131029-yak/</id>
+            
+            <content type="html">
+              <p>A few more days into my BackboneJS study, and I have been working through a bit of the <a href="http://www.amazon.com/Developing-Backbone-js-Applications-Addy-Osmani/dp/1449328253">Backbone Fundamentals book</a>. You can read it online for free on <a href="https://github.com/addyosmani/backbone-fundamentals">the author's Github</a>.</p>
+<p>I did find myself stuck doing some yak shaving. </p>
+<blockquote>
+<p>yak shaving is what you are doing when you're doing some stupid, fiddly little task that bears no obvious relationship to what you're supposed to be working on, but yet a chain of twelve causal relations links what you're doing to the original meta-task. <a href="http://projects.csail.mit.edu/gsb/old-archive/gsb-archive/gsb2000-02-11.html">(source)</a></p>
+</blockquote>
+<p>In this case, the yak was Mongodb, and shaving it involved debugging its broken installer on my recently updated Macbook. After a half hour of this, I gave up and ported the API in the exercise to use a tiny file-based data store called <a href="https://github.com/jtsage/nodejs-microdb">MicroDB</a>.</p>
+<p>MicroDB was less than 200 lines of code, doesn't seem to have been updated in a year, and did exactly as much as I needed it to. It took about 10 minutes to port the code. </p>
+<p>I uploaded the ported code to my Github accounts. There may be some sharp edges, but it implements all the major features (add, edit, delete) <a href="https://github.com/marcpare/backbone-fundamental-library-feweryaks">Github</a></p>
+<p>I am quite curious now how you would go about building a NodeJS app with a file-based data store. This is a fantastically useful pattern for prototyping or smaller sites. I couldn't find any simple, convenient ways to do this. I'll be on the lookout. </p>
+            </content>
+        </entry>
+    
+        <entry>
+            <title type="html">NY Times - A Game of Shark and Minnow</title>
+            <author><name></name></author>
+            <link href="/posts/20131017-sharkandminnow/"/>
+            <updated></updated>
+            <published></published>
+            <id>/posts/20131017-sharkandminnow/</id>
             
             <content type="html">
               <p><img alt="Screen clip from NY Times" src="/static/images/20131027-shark.png" /></p>
@@ -131,10 +156,10 @@ Louis Agassiz Fuertes. His bird observations are famous:</p>
         <entry>
             <title type="html">Nice Experience with TodoMVC</title>
             <author><name></name></author>
-            <link href="/20131026-todomvc/"/>
+            <link href="/posts/20131026-todomvc/"/>
             <updated></updated>
             <published></published>
-            <id>/20131026-todomvc/</id>
+            <id>/posts/20131026-todomvc/</id>
             
             <content type="html">
               <p><img alt="TodoMVC logo" src="/static/images/20131026-todomvc.png" /></p>
@@ -160,10 +185,10 @@ filterAll: function(){ app.todos.each(this.filterOne); }
         <entry>
             <title type="html">How Norman Borlaug Worked</title>
             <author><name></name></author>
-            <link href="/20131026-norman/"/>
+            <link href="/posts/20131026-norman/"/>
             <updated></updated>
             <published></published>
-            <id>/20131026-norman/</id>
+            <id>/posts/20131026-norman/</id>
             
             <content type="html">
               <p><img alt="Borlaug in a field" src="/static/images/20131026-borlaug.gif" /></p>
@@ -184,10 +209,10 @@ filterAll: function(){ app.todos.each(this.filterOne); }
         <entry>
             <title type="html">Macbook Air Battery Life</title>
             <author><name></name></author>
-            <link href="/20131023-battery/"/>
+            <link href="/posts/20131023-battery/"/>
             <updated></updated>
             <published></published>
-            <id>/20131023-battery/</id>
+            <id>/posts/20131023-battery/</id>
             
             <content type="html">
               <p>John Siracusa's <a href="http://arstechnica.com/apple/2013/10/os-x-10-9/18/">monster OS X upgrade review</a> just landed, and it doesn't disappoint.</p>
@@ -207,10 +232,10 @@ filterAll: function(){ app.todos.each(this.filterOne); }
         <entry>
             <title type="html">Gustave Doré</title>
             <author><name></name></author>
-            <link href="/20131022-dore/"/>
+            <link href="/posts/20131022-dore/"/>
             <updated></updated>
             <published></published>
-            <id>/20131022-dore/</id>
+            <id>/posts/20131022-dore/</id>
             
             <content type="html">
               <p><img alt="The Council of Rate" src="/static/images/20131022-rats.jpg" />
@@ -230,10 +255,10 @@ filterAll: function(){ app.todos.each(this.filterOne); }
         <entry>
             <title type="html">Difficult to Believe but Optimized</title>
             <author><name></name></author>
-            <link href="/20131020-backbone/"/>
+            <link href="/posts/20131020-backbone/"/>
             <updated></updated>
             <published></published>
-            <id>/20131020-backbone/</id>
+            <id>/posts/20131020-backbone/</id>
             
             <content type="html">
               <p>Day 1 of studying backbonejs, and I found this gem in the source:</p>
@@ -267,10 +292,10 @@ var triggerEvents = function(events, args) {
         <entry>
             <title type="html">Kentaro Toyama The ICT4D Jester</title>
             <author><name></name></author>
-            <link href="/20131018-kentaro/"/>
+            <link href="/posts/20131018-kentaro/"/>
             <updated></updated>
             <published></published>
-            <id>/20131018-kentaro/</id>
+            <id>/posts/20131018-kentaro/</id>
             
             <content type="html">
               <p>Kentaro's blog, <a href="http://blog.ict4djester.org/">The ICT4D Jester</a> breaks down humanitarian efforts involving computers, internet, and devices. He founded and ran Microsoft Research India but pulls no punches in critiquing technology's role in aid work. </p>
@@ -281,10 +306,10 @@ var triggerEvents = function(events, args) {
         <entry>
             <title type="html">Carl Jung&#39;s Red Book</title>
             <author><name></name></author>
-            <link href="/20131017-jung/"/>
+            <link href="/posts/20131017-jung/"/>
             <updated></updated>
             <published></published>
-            <id>/20131017-jung/</id>
+            <id>/posts/20131017-jung/</id>
             
             <content type="html">
               <p><img alt="Jung's Red Book" src="/static/images/20131015jungredbook.jpg" /></p>

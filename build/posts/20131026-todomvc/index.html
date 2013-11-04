@@ -2,11 +2,12 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>NY Times - A Game of Shark and Minnow</title>
+    <title>Nice Experience with TodoMVC</title>
     
     
     <link rel="stylesheet" href="/static/css/main.css">
     
+    <link rel="shortcut icon" href="/static/favicon.ico" />
 </head>
 <body>
     
@@ -43,14 +44,29 @@
     
 <div class="container">
 
-    <p><img alt="Screen clip from NY Times" src="/static/images/20131027-shark.png" /></p>
-<p>The latest piece in digital narrative from the creative desks at the NY Times about "the world's most surreal fishing camp." <a href="http://www.nytimes.com/newsgraphics/2013/10/27/south-china-sea/?hp">A Game of Shark and Minnow</a></p>
-<p>Lots of gems in this story: politics, Asia, geography, history, fishing, technology, economics, and more. The screen clip above is from a section that describes the ingenuity of people on the marooned boat.</p>
-<blockquote>
-<p>They made spearfishing guns from a piece of wood, a bolt repurposed as a trigger and two pieces of rubber for propulsion</p>
-</blockquote>
-<p>The notes on geo-political strategy use cabbage, salami, big bellies, and forest growth as metaphors.</p>
-<p>The source code isn't minified or obfuscated in case you're curious about how this sort of visualization gets built.</p>
+<article class="post">
+  <h3 class="post-title">
+    Nice Experience with TodoMVC
+    <span class="date">Oct 26</span>
+  </h3>
+  <p><img alt="TodoMVC logo" src="/static/images/20131026-todomvc.png" /></p>
+<p>I learned a style tip about prototypal inheritance a few days ago from my study of BackboneJS, and I got to encounter the friendly folks behind TodoMVC.</p>
+<p>I noticed a parameter that wasn't strictly necessary to the behavior of a function.</p>
+<p>Here are the functions:</p>
+<pre>
+filterOne: function(todo){ todo.trigger('visible'); }
+filterAll: function(){ app.todos.each(this.filterOne, this); }
+</pre>
+
+<p>Here is the change you can make to <code>filterAll</code> without breaking the behavior:</p>
+<pre>
+filterAll: function(){ app.todos.each(this.filterOne); }
+</pre>
+
+<p>I received a reply to my filed issue in less than a few hours. <a href="https://twitter.com/passy">@passy</a> let me know that, while not strictly necessary, passing in the extra <code>this</code> helps by keeping the current object around in case the <code>filterOne</code> function needs it in the future. </p>
+<p>This sort of situation is not one that I have encountered in object-oriented programming, where you can't reassign the context of a function. In Javascript, this is really easy and, as I found out, something you encounter right away.</p>
+<p>Do check out <a href="https://github.com/tastejs/todomvc">TodoMVC</a> if you're poking around modern Javascript frameworks. There is nothing like looking at real implementations. They responded to my issue filing right away, and I've learned a lot from their code so far.</p>
+</article>
 
 </div>
 
