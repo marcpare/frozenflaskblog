@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<article class="post">
+  <h3 class="post-title">
+    {{ page.title }}
+    <span class="date">{{ page.meta.published.strftime('%b %d') }}</span>
+  </h3>
+  {{ page.html|safe }}
+</article>
+{% endblock content %}

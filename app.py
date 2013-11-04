@@ -8,13 +8,19 @@ app.config.from_pyfile('sitesettings.cfg')
 pages = FlatPages(app)
 freezer = Freezer(app)
 
+def load_posts():
+  return [post for post in pages 
+      if ('published' in post.meta) 
+         and post.path.startswith('posts/')]
+
 @app.route('/')
 def index():
   return page('index')
 
 @app.route('/atom.xml')
 def atom():
-  posts = [post for post in pages if 'published' in post.meta]
+  posts = load_posts()
+  
   posts = sorted(posts, reverse=True, 
     key=lambda post: post.meta['published'])
   page = pages.get_or_404('atom')
@@ -22,7 +28,7 @@ def atom():
 
 @app.route('/blog')
 def blog():
-  posts = [post for post in pages if 'published' in post.meta]
+  posts = load_posts()
   posts = sorted(posts, reverse=True, 
     key=lambda post: post.meta['published'])
   page = pages.get_or_404('blog')
@@ -31,7 +37,10 @@ def blog():
 @app.route('/<path:path>/')
 def page(path):
   page = pages.get_or_404(path)
-  return render_template('page.html', page=page)
+  template = 'page.html'
+  if page.path.startswith('posts/'):
+    template = 'post.html'
+  return render_template(template, page=page)
   
 @freezer.register_generator
 def page_generator():
