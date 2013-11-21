@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Dictionary of Computer Science</title>
+    
+    
+    <link rel="stylesheet" href="/static/css/main.css">
+    
+    <link rel="shortcut icon" href="/static/favicon.ico" />
+</head>
+<body>
+    
+    
+
+    <div class="left">      
+      <ul class="menu">
+      
+        <li  class="active">
+          <a href="/index">home</a></li>
+      
+        <li >
+          <a href="/about">about</a></li>
+      
+        <li >
+          <a href="/consulting">consulting</a></li>
+      
+        <li >
+          <a href="/blog">blog</a></li>
+      
+        <li >
+          <a href="/contact">contact</a></li>
+      
+        <li >
+          <a href="https://github.com/marcpare?tab=repositories">github</a></li>
+      
+      </ul>
+      <!--
+      <div class="rss"><a href="/atom.xml">RSS</a></div>
+      -->
+    </div>
+    
+<div class="container">
+
+  <h1>Computer Science Concepts</h1>
+<h2>demonstrated in Javascript</h2>
+<p><em>Inversion of Control</em></p>
+<p>Inversion of Control and Dependency Injection are closely related concepts. Basically, the coupling between objects is determined a run-time, not compile-time.</p>
+<p>In BackboneJS, the event listener <code>on</code> has a corresponding 'listenTo' method.</p>
+<p>With <code>on</code>, an object reacts to one of its own events.</p>
+<p>With <code>listenTo</code>, an object can listen to events from another object.</p>
+<p>For example, in a Todo list application, the view object that displays the list of Todo items would <code>listenTo</code> changes in the object representing a collection of Todos. </p>
+<p>This is called an Inversion of Control because it is not known until run time which object(s) will be receiving events. With the <code>on</code> method, you would could determine this lexically based on which objects defined the <code>on</code> method.</p>
+<p><em>Closure</em></p>
+<p>A closure is said to "close around" variables. It is a function with a reference to an execution environment (usually a number of non-local variables).</p>
+<pre>
+var make_adder = function (y) {
+  return function (x) {
+    return x + y;
+  }
+}
+
+var add_two = make_adder(2);
+
+add_two(5); // 7
+</pre>
+
+<p>Here the <code>make_adder</code> function creates a function that closes around the <code>x</code> variable.</p>
+<p>You would say <code>make_adder</code> <em>returns a closure</em> containing a reference to the variable <code>y</code>, which, in the case of <code>add_two</code>, equals <code>2</code>.</p>
+<p><em>Lexical Scoping</em></p>
+<p>"Scope" is about the rules that determine whether a variable name is valid and what its contents are.</p>
+<p>Lexical scoping is determined by the program's <em>text</em> (hence "lexical"). A variable exists while the function that defined it exists. It disappears afterward.</p>
+<p>In Javascript, functions are the only unit of structure that determine scope.</p>
+<pre>
+var x = 5;
+function f () { 
+  var x = 10;
+}
+function g () {
+  return x;
+}
+g(); // 5
+</pre>
+
+<p>In a dynamically scoped language, the definition of <code>x</code> from function <code>f</code> would be available to <code>g</code>, meaning the return value would be 10.</p>
+
+</div>
+
+<div class="footer">
+  <div class="footer-separator">
+  <span class="fs-0"></span><span class="fs-1"></span><span class="fs-2"></span><span class="fs-3"></span><span class="fs-4"></span><span class="fs-5"></span><span class="fs-6"></span>
+  </div>
+  
+  <p>What's a <span id="tile"></span>?</p>
+  <p>
+    It's a reminder. The tiniest detail can make a huge difference. Society is the sum of contributions of many people. Small is beautiful. 
+  </p>
+</div>
+
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-43189862-2', 'smallredtile.com');
+  ga('send', 'pageview');
+</script>
+
+
+</body>
+</html>

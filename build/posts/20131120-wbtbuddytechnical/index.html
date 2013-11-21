@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Implementing Interactive Engineering Calculations with Backbone Javascript</title>
+    
+    
+    <link rel="stylesheet" href="/static/css/main.css">
+    
+    <link rel="shortcut icon" href="/static/favicon.ico" />
+</head>
+<body>
+    
+    
+      <h2 class="title-small"><span id="tile"></span>small red tile</h2>
+    
+
+    <div class="left">      
+      <ul class="menu">
+      
+        <li >
+          <a href="/index">home</a></li>
+      
+        <li >
+          <a href="/about">about</a></li>
+      
+        <li >
+          <a href="/consulting">consulting</a></li>
+      
+        <li  class="active">
+          <a href="/blog">blog</a></li>
+      
+        <li >
+          <a href="/contact">contact</a></li>
+      
+        <li >
+          <a href="https://github.com/marcpare?tab=repositories">github</a></li>
+      
+      </ul>
+      <!--
+      <div class="rss"><a href="/atom.xml">RSS</a></div>
+      -->
+    </div>
+    
+<div class="container">
+
+<article class="post">
+  <h3 class="post-title">
+    Implementing Interactive Engineering Calculations with Backbone Javascript
+    <span class="date">Nov 20</span>
+  </h3>
+  <p>I wrote lots of engineering reports as an undergrad in Mechanical Engineering, and I've always dreamed there was something more we could do more to present calculations to be understand, learned, and shared. Here is the result of a recent experiment to simplify a nasty Excel spreadsheet into an interactive calculation.</p>
+<p>The <a href="http://smallredtile.com/stove/wbt-buddy/">WBT Buddy</a> is a single-page app that performs an energy efficiency calculation with the steps explicitly laid out. It also visualizes your result against some baseline quantities. </p>
+<p>Everything happens in the browser. While the capability to do so has been around for a decade, it's never been easier to develop this sort of functionality thanks to a constellation of front-end tools: Backbone Javascript, CSS3, and Bootstrap.</p>
+<p>The integration of these tools is quite painless. I built a sort of framework on top of them for the notion of a "user interface for engineering calculations". This is a big area, and this effort is certainly not the final say in how this should be done. Each problem will have its own contours, and you should choose your abstractions to fit into them.</p>
+<p>With that in mind, here are some of the tools I chose and how they were deployed:</p>
+<h2>Binding to Bootstrap events</h2>
+<p>The fuel type selection box is a Bootstrap <code>.nav-pills</code> list. Each link item is given <code>data-toggle="pill"</code>. When the link is clicked a <code>shown.bs.tab</code> event is triggered. You can bind that event with one line of Backbone code:</p>
+<p><img alt="navpills" src="/static/images/20131120navpills.png" /></p>
+<pre class="prettyprint">
+events: {
+  'shown.bs.tab .fuel-type-choice' : 'updateOnClick'
+}
+</pre>
+
+<h2>CSS bar-graph</h2>
+<p>While I love the d3 visualization library, I was not looking forward to laying out an entire visualization for a single bar graph. Fortunately, I managed to pull this off with just CSS.</p>
+<p>To render the bar corresponding to 15% here:</p>
+<p><img alt="bargraph" src="/static/images/20131120-bar.png" /></p>
+<p>This is all that's required:</p>
+<pre class="prettyprint">
+&lt;li class="yours"&gt;
+  15%
+  &lt;span class="bar" style="width:12%"&gt;&lt;/span&gt;
+&lt;/li&gt;
+</pre>
+
+<p>Back when I was introduced to web programming as an intern in college, I spent an entire summer rendering bar graphs in Javascript. Now, it takes just a few minutes of choosing the right CSS property.</p>
+<h2>numeral.js for formatting</h2>
+<p>Formatting numbers isn't built-in to Javascript. I grabbed the numeral.js library to make this easy.</p>
+<p>If I wanted to turn "26312.35266" into "26,312.35", I did this:</p>
+<pre class="prettyprint">
+return numeral(number).format("0,00.00");
+</pre>
+
+<h2>Domain Specific Language for updatable equations</h2>
+<p>This feature will get its own blog post as it takes some explaining. Here is a short preview.</p>
+<p>I implemented a tiny language for building templates for "steps of an equation". Here's what one of the equation steps looks like, with its two states shown:</p>
+<p><img alt="equation1" src="/static/images/20131120-eq1.png" /></p>
+<p><img alt="equation2" src="/static/images/20131120-eq2.png" /></p>
+<p>The code that creates this equation step look like this:</p>
+<pre class="prettyprint">
+return model.equationTemplate(
+  "E_H2O = ([m_H2O]) * [c_pH2O] * ([T_B] - [T_A])"
+);
+</pre>
+
+<p>You can also do things like convert the variables to different units or format the output number. The following template converts the <code>E_H2O</code> quantity to kiloJoules and formats it with one digit after the decimal point.</p>
+<pre class="prettyprint">
+return model.equationTemplate(
+  "OTE = [E_H2O kJ -f 0.0] / [E_fuel kJ -f 0.0]"
+);
+</pre>
+
+<p>I originally fiddled with using a parser generator (PEG.js) for this feature. However, I found it was more straightforward to build on top of the underscore.js templating code (which in turn is built on top of John Resig's micro-templating example)</p>
+<h2>Conclusions</h2>
+<p>Backbone.JS the implementation of the WBT Buddy quite enjoyable. Binding events between the inputs, equation model, and calculation outputs was logical. The abstractions in Backbone.JS are flexible. I never found myself fighting against the framework to get something done. I would reach for these tools again in future projects.</p>
+</article>
+
+</div>
+
+<div class="footer">
+  <div class="footer-separator">
+  <span class="fs-0"></span><span class="fs-1"></span><span class="fs-2"></span><span class="fs-3"></span><span class="fs-4"></span><span class="fs-5"></span><span class="fs-6"></span>
+  </div>
+  
+  <p>What's a <span id="tile"></span>?</p>
+  <p>
+    It's a reminder. The tiniest detail can make a huge difference. Society is the sum of contributions of many people. Small is beautiful. 
+  </p>
+</div>
+
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-43189862-2', 'smallredtile.com');
+  ga('send', 'pageview');
+</script>
+
+
+</body>
+</html>
