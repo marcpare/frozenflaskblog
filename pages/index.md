@@ -3,20 +3,18 @@ active: index
 
 <h1><span id="tile"></span>small red tile</h1>
 
-<h2>simple software that delights and delivers</h2>                
-    
-<div class="letter">
-  <p>Hi, I'm Marc Par&eacute; and I design and write software&mdash;digital artifacts that delight and amuse as well as solid components that move the needle on business goals.</p>
+<h2>software product development</h2>                
 
-  <p>For example, I have</p>
+<div class="letter">
+  <p>Hi, I'm Marc Par&eacute; and I design and write software that delivers results, particularly for early stage product development of web applications. For example, I have</p>
      
   <ul>
     <li>designed and built a web software product prototype that raised a $500k angel investment</li>
     <li>conceived and built an interactive digital narrative that won Microsoft's Imagine Cup against thousands of international competitors</li>
-    <li>published online documentation of clean energy technology that has reached over 20,000 people and been cited in a PhD thesis.</li>
+    <li>built an interactive training course for the World Bank's IFC</li>
   </ul>
-    
-  <p>If this sounds interesting, please <a href="/contact">get in touch</a>. I work primarily in Python, PHP, SQL, and Javascript these days.</p>
+  
+  <p>I have done consulting and contract work around the world with a focus on web applications. If it sounds like I could help your business, please <a href="/contact">get in touch</a>. I work primarily in Python, PHP, SQL, and Javascript these days.</p>
     
    <p>Some of my favorite images from my work:</p>
 </div>
@@ -41,7 +39,7 @@ active: index
     <p class="caption">Modeling a pressure wave through an elastic material (2009)</p>
 
 <img width=400 src="/static/images/raytrace.png"></img>
-<p class="caption">A 3D engine built from scratch in MATLAB (2006)</p>
+<p class="caption">A 3D engine built from scratch (2006)</p>
 
 <iframe width="400" height="315" src="http://www.youtube.com/embed/Sl0yAABZsFg" frameborder="0" allowfullscreen></iframe>
 <p class="caption">Fluid dynamics simulation. Built from scratch in C++. (2011)</p>
