@@ -136,6 +136,11 @@ li {
   display: block;
   margin-bottom: 80px;
 }
+.footer-content {
+  width: 30%;
+  margin: 0 auto;
+  text-align: center;
+}
 .fs-0,
 .fs-1,
 .fs-2,
@@ -147,7 +152,7 @@ li {
   display: inline-block;
 }
 .fs-0 {
-  width: 10%;
+  width: 30%;
   background: #4A3D3D;
 }
 .fs-1 {
@@ -155,15 +160,15 @@ li {
   background: #FF0000;
 }
 .fs-2 {
-  width: 20%;
+  width: 0%;
   background: #6FC9B6;
 }
 .fs-3 {
-  width: 10%;
+  width: 50%;
   background: #210E0D;
 }
 .fs-4 {
-  width: 30%;
+  width: 0%;
   background: #D1FAFF;
 }
 .fs-5 {

@@ -6,7 +6,7 @@ active: index
 <h2>software product development</h2>                
 
 <div class="letter">
-  <p>Hi, I'm Marc Par&eacute; and I design and write software that delivers results, particularly for early stage product development of web applications. For example, I have</p>
+  <p>Hi, I'm Marc Par&eacute; and I design and write software, particularly as part of the product development process. For example, I have</p>
      
   <ul>
     <li>designed and built a web software product prototype that raised a $500k angel investment</li>
@@ -14,7 +14,11 @@ active: index
     <li>built an interactive training course for the World Bank's IFC</li>
   </ul>
   
-  <p>I have done consulting and contract work around the world with a focus on web applications. If it sounds like I could help your business, please <a href="/contact">get in touch</a>. I work primarily in Python, PHP, SQL, and Javascript these days.</p>
+  <p>I have done consulting and contract work around the world. I have a generalist skill set, capable on the "full stack" of web technologies. I particularly enjoy work with user interfaces and APIs (which are a sort of user interface for software developers).</p>
+  
+  <p>My background in software is writing software to implement and support mechanical engineering simulation. I also trained in competitive algorithm programming, reaching the World Finals in the ACM ICPC in 2008.</p>
+    
+  <p>If it sounds like I could help your business, please <a href="/contact">get in touch</a>. I work primarily in Python, PHP, and Javascript these days.</p>
     
    <p>Some of my favorite images from my work:</p>
 </div>
