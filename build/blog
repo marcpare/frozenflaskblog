@@ -24,9 +24,6 @@
         <li >
           <a href="/about">about</a></li>
       
-        <li >
-          <a href="/consulting">consulting</a></li>
-      
         <li  class="active">
           <a href="/blog">blog</a></li>
       
@@ -44,6 +41,11 @@
     
 <div class="container">
 
+
+<h1>the curio box</h1>
+<h2>visual representation, work habits, product development, and Javascript foo</h2>
+
+<hr>
 
   
   

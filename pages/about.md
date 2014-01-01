@@ -16,4 +16,4 @@ I travelled as far as rural Vietnam, spending two years designing and documentin
 
 This led me to Vashon Island, Seattle, a refuge for hippies and high tech, just a short ferry ride from downtown Seattle. There is an extraordinary amount of software work going on in the Greater Seattle Area, spread out over a number of fascinating areas of application&mdash;environment, energy, media, to name a few. It is a great hub for innovation on the web, not just restricted to the typical me-too apps from Silicon Valley.
 
-I look to exercise my product development perspective honed in cross-disciplinary, cross-cultural environments as well as my technical chops earned in algorithm and engineering labs. Currently, I am finding and executing on freelance software contracts, with an emphasis on helping startups and digital agencies. My main area of work is on the web: user interfaces, APIs, and applications.
+Currently, I do freelance user interface design and prototyping, helping to accelerate product development, improve usability of web applications, and reduce cost and risk of software projects.
