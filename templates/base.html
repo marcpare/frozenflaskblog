@@ -14,9 +14,9 @@
     
     {% set menu_items = [
         ('/index', 'index', 'home'),
-        ('/work', 'work', 'work'),
-        ('/about', 'about', 'about'),
+        ('/portfolio', 'portfolio', 'portfolio'),
         ('/blog', 'blog', 'blog'),
+        ('/mission', 'mission', 'mission'),
         ('/contact', 'contact', 'contact'),
         ('https://github.com/marcpare?tab=repositories', 'github', 'github')
       ] -%}
@@ -26,13 +26,14 @@
       <h2 class="title-small"><span id="tile"></span>small red tile</h2>
     {% endif %}
 
-    <div class="left">      
+    <div class="left">    
       <ul class="menu">
       {% for href, id, caption in menu_items %}
         <li {% if id == active_page %} class="active"{% endif %}>
           <a href="{{ href|e }}">{{ caption|e }}</a></li>
       {% endfor %}
       </ul>
+
       <!--
       <div class="rss"><a href="/atom.xml">RSS</a></div>
       -->
@@ -49,10 +50,12 @@
 {% else %}
 <div class="footer">
 {% endif %}  
+<!--
   <div class="footer-separator">
   {% for number in range(7) %}<span class="fs-{{ number }}"></span>{% endfor %}
   </div>
-  
+  -->
+  <!--
   <div class="footer-content">
   <p>What's a <em>small red tile</em>?</p>
   <p>
@@ -61,6 +64,7 @@
   </p>
   <p><span id="tile"></span></p>
   </div>
+    -->
 </div>
 
 <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>

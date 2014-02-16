@@ -6,6 +6,7 @@
     
     
     <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="/static/css/jquery.fancybox.css">
     
     <link rel="shortcut icon" href="/static/favicon.ico" />
 </head>
@@ -15,17 +16,20 @@
       <h2 class="title-small"><span id="tile"></span>small red tile</h2>
     
 
-    <div class="left">      
+    <div class="left">    
       <ul class="menu">
       
         <li >
           <a href="/index">home</a></li>
       
         <li >
-          <a href="/about">about</a></li>
+          <a href="/portfolio">portfolio</a></li>
       
         <li  class="active">
           <a href="/blog">blog</a></li>
+      
+        <li >
+          <a href="/mission">mission</a></li>
       
         <li >
           <a href="/contact">contact</a></li>
@@ -34,6 +38,7 @@
           <a href="https://github.com/marcpare?tab=repositories">github</a></li>
       
       </ul>
+
       <!--
       <div class="rss"><a href="/atom.xml">RSS</a></div>
       -->
@@ -67,11 +72,15 @@ filterAll: function(){ app.todos.each(this.filterOne); }
 
 </div>
 
+
 <div class="footer">
+  
+<!--
   <div class="footer-separator">
   <span class="fs-0"></span><span class="fs-1"></span><span class="fs-2"></span><span class="fs-3"></span><span class="fs-4"></span><span class="fs-5"></span><span class="fs-6"></span>
   </div>
-  
+  -->
+  <!--
   <div class="footer-content">
   <p>What's a <em>small red tile</em>?</p>
   <p>
@@ -80,6 +89,7 @@ filterAll: function(){ app.todos.each(this.filterOne); }
   </p>
   <p><span id="tile"></span></p>
   </div>
+    -->
 </div>
 
 <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>

@@ -1,10 +1,10 @@
-title: small red tile | work
-active_page: work
+title: small red tile | portfolio
+active_page: portfolio
 
 
-<h1>Work</h1>
+<h1>Portfolio</h1>
 
-<p>User Interface design and development with an emphasis on prototyping interactive functionality. A jolt of activation energy to innovative ideas.</p>
+<p>Software design and development. A jolt of activation energy to innovative ideas.</p>
 
 <div class="project-major">
   <h3>Stealth Mode Startup</h3>

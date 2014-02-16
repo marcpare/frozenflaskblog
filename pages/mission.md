@@ -1,7 +1,7 @@
 title: about Marc Pare
-active_page: about
+active_page: mission
 
-About
+Mission
 =====
 
 A few notes on the mission and vision underlying _small red tile_.
@@ -16,4 +16,4 @@ I travelled as far as rural Vietnam, spending two years designing and documentin
 
 This led me to Vashon Island, Seattle, a refuge for hippies and high tech, just a short ferry ride from downtown Seattle. There is an extraordinary amount of software work going on in the Greater Seattle Area, spread out over a number of fascinating areas of application&mdash;environment, energy, media, to name a few. It is a great hub for innovation on the web, not just restricted to the typical me-too apps from Silicon Valley.
 
-Currently, I do freelance user interface design and prototyping, helping to accelerate product development, improve usability of web applications, and reduce cost and risk of software projects.
+Currently, I do freelance software work, helping to accelerate product development, improve usability of web applications, and reduce cost and risk of software projects.
