@@ -56,6 +56,74 @@
   
     <article class="post">
     <h3 class="post-title">
+      <a href="/posts/20140408-functional/">Verbs Instead of Nouns</a>
+      <span class="date">Apr 08</span>
+    </h3>
+
+    <p>Jorge Luis Borges introduces us to a strange world in <em>Tlön, Uqbar, Oris Tertius</em>:</p>
+<blockquote>
+<p>"For them, the world is not a concurrence of objects in space, but a heterogeneous series of independent acts. It is serial and temporal, but not spatial. There are no nouns in the hypothetical <em>Ursprache</em> of Tlön...For example, there is no word corresponding to the noun <em>moon</em>, but there is a verb <em>to moon</em> or <em>to moondle</em>. <em>The moon rose over the sea</em> would be written..."<em>upward beyond the constant flow there was moondling</em>" (23)</p>
+</blockquote>
+<p>See if you can catch the parallels this software engineer's description of a bit of Javascript: </p>
+<blockquote>
+<p>If the functions defined by mixins are intended solely for the use of other object why bother creating mixins as regular objects at all? Put another way, a mixin should be a process not an object. The logical conclusion is to make our mixins into functions into which consumer objects inject themselves by delegation, thus cutting out the middle guy (the extend function) entirely.</p>
+<p>...</p>
+<p>This approach feels right. Mixins as verbs instead of nouns; lightweight one stop function shops -- <a href="http://javascriptweblog.wordpress.com/2011/05/31/a-fresh-look-at-javascript-mixins/">Angus Croll</a></p>
+</blockquote>
+<p>Uncanny, right? The idea of modeling as "verbs instead of nouns" comes up again and again. There's an interesting connection to the idea of Duck Typing, <a href="http://en.wikipedia.org/wiki/Duck_typing">from Wikipedia</a>:</p>
+<blockquote>
+<p>The name of the concept refers to the duck test, attributed to James Whitcomb Riley (see history below), which may be phrased as follows:</p>
+<p>When I see a bird that walks like a duck and swims like a duck and quacks like a duck, I call that bird a duck.[1]</p>
+<p>In duck typing, a programmer is only concerned with ensuring that objects <em>behave as demanded</em> of them in a given context, rather than ensuring that they are of a specific type.</p>
+</blockquote>
+<p>Here, we define something as a "duck" if it happens to <em>do</em> the things that a duck does. It doesn't matter what the thing really <em>is</em>. This just happens to be found in American Pragmatism, as well:</p>
+<blockquote>
+<p>Pragmatists...do not believe that there is a way things really are. So they want to replace the appearance/reality distinction by [the distinction] between descriptions of the world and of ourselves, which are less useful, and those, which are more useful. –Rorty</p>
+</blockquote>
+<p>All of this is sort of a dreamy, emphasizing the movement of things rather than their (seemingly) solid existence. I think this thought was at the root of my fascination with the idea of <a href="http://smallredtile.com/posts/20131029-bird/">pigment vs. structural colors</a> because it revealed that color isn't necessarily a static thing; rather, it's the result of the movement of photons, scattered in a particular way, which constantly bombard my eyeballs. In other words, color is not necessarily a specific thing, but, instead, a movement through time, an action over time.</p>
+<p>The other side to note as a computer programmer is the practical side. You are almost never concerned with what something actually <em>is</em>, just with imitating or modeling it well enough. A computer simulation of a wind turbine is not actually a wind turbine. That's ok, the computer program is interesting because it happens to describe the behavior of a wind turbine well enough for the design engineers. </p>
+    </article>
+  
+  
+    <article class="post">
+    <h3 class="post-title">
+      <a href="/posts/20140407-grepawesome/">grep awesome</a>
+      <span class="date">Apr 04</span>
+    </h3>
+
+    <p>I happened to search my entire javascript codebase for the word "awesome" last week. I stumbled into this little gem in the jQuery source:</p>
+<pre class="prettyprint">
+// A tribute to the "awesome hack by Dean Edwards"
+// Chrome < 17 and Safari 5.0 uses "computed value" 
+// instead of "used value" for margin-right
+// Safari 5.1.7 (at least) returns percentage for a 
+// arger set of values, but width seems to be reliably 
+// pixels this is against the CSSOM draft spec: 
+// http://dev.w3.org/csswg/cssom/#resolved-values
+if ( rnumnonpx.test( ret ) && rmargin.test( name ) ) {
+
+    // Remember the original values
+    width = style.width;
+    minWidth = style.minWidth;
+    maxWidth = style.maxWidth;
+
+    // Put in the new values to get a computed value out
+    style.minWidth = style.maxWidth = style.width = ret;
+    ret = computed.width;
+
+    // Revert the changed values
+    style.width = width;
+    style.minWidth = minWidth;
+    style.maxWidth = maxWidth;
+}
+</pre>
+
+<p>What a gnarly little piece of code. The best explanation I found about this is at <a href="http://heygrady.com/blog/2011/12/21/length-and-angle-unit-conversion-in-javascript/">heygrady</a>. Shows how the effort required to provide compatibility across browser versions grows exponentially rather than linearly – getting those last little things right takes hacks, workaround, and black magic.</p>
+    </article>
+  
+  
+    <article class="post">
+    <h3 class="post-title">
       <a href="/posts/20140104-flower/">Flowers and Recursion</a>
       <span class="date">Jan 04</span>
     </h3>
