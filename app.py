@@ -54,4 +54,4 @@ if __name__ == "__main__":
   if len(sys.argv) > 1 and sys.argv[1] == "build":
     freezer.freeze()
   else:
-    app.run(debug=True)
+    app.run(debug=True, port=7206, host='0.0.0.0')
