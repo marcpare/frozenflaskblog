@@ -18,7 +18,7 @@
 
     
         <entry>
-            <title type="html">A Most Massively Useful Towel for Javascript (Soaking Errors in Javascript Object Traversal)</title>
+            <title type="html">A Sixth Pattern for Safe Javascript Object Traversal</title>
             <author><name></name></author>
             <link href="/posts/20140514-safe/"/>
             <updated></updated>
@@ -26,7 +26,7 @@
             <id>/posts/20140514-safe/</id>
             
             <content type="html">
-              <p>Perhaps you've also run into TypeErrors when accessing deeply nested properties in Javascript objects?</p>
+              <p>Perhaps, like <a href="http://stackoverflow.com/questions/10918488/testing-nested-objects-as-undefined-in-javascript]">many</a> <a href="http://stackoverflow.com/questions/2631001/javascript-test-for-existence-of-nested-object-key">others</a>, you've also run into TypeErrors when accessing deeply nested properties in Javascript objects?</p>
 <p>If not, consider a nested object like,</p>
 <pre class="prettyprint">
 obj = {
@@ -46,18 +46,51 @@ obj.event.location.place.name
 </pre>
 
 <p>Unfortunately, we get a TypeError if any of the fields are <code>null</code> or <code>undefined</code>.</p>
-<p>There are two basic techniques for dealing with this:</p>
-<ol>
-<li>Check for existence at each level of property access</li>
-<li>Wrap property access in a <code>try/catch</code> block</li>
-</ol>
-<p>Neither technique results in particularly nice code. You don't want to be wrapping every object access in a <code>try/catch</code> block, nor do you want to be writing pyramids of <code>if</code> statements.</p>
-<p>There's another little bit to consider: what do you do if your lookup fails? I usually want to just return some default value. </p>
-<p>After a bit of searching, I found a few main approaches to do object traversal nicely. I found each lacking.</p>
-<p>(1) "Path" lookups</p>
-<p>A path lookup looks like some variation of the following,</p>
+<p>So far, I've found five techniques to deal with this situation. If that weren't enough, I'll add a sixth at the end that I find really nice.</p>
+<p>First, the basics,</p>
+<h2>(1) Nested property existence checking</h2>
 <pre class="prettyprint">
-obj.path('event.location.place.name');
+var name;
+if (obj && 
+    obj.event && 
+    obj.event.location && 
+    obj.event.location.place) {
+  name = obj.event.location.place.name;
+}
+</pre>
+
+<p>For looking only one or two levels deep, this approach isn't so bad, though the repetition it cumbersome.</p>
+<h2>(2) Use a try/catch block</h2>
+<pre class="prettyprint">
+var name;
+try {
+  name = obj.event.location.place.name;
+} catch (e) {
+  name = 'name not found';
+}
+</pre>
+
+<p>Pretty good, but wrapping things in a <code>try/catch</code> block is annoying if we want to do an object lookup inline. For example, if we were trying to replace the following code,</p>
+<pre class="prettyprint">
+$('#name').text(obj.event.location.place.name);
+</pre>
+
+<p>We would need to do the lookup first and store it in a local variable,</p>
+<pre class="prettyprint">
+var name;
+try {
+  name = obj.event.location.place.name;
+} catch (e) {
+  name = 'name not found';
+}
+$('#name').text(name);
+</pre>
+
+<p>Not bad, but can we do better? Do we really need to do error checking? Quite a few techniques go down this road...</p>
+<h2>(3) Create a path lookup syntax</h2>
+<p>A path lookup looks like <a href="https://gist.github.com/furf/3208381">some</a> <a href="https://github.com/chaijs/pathval">variation</a> of the following,</p>
+<pre class="prettyprint">
+path(obj, 'event.location.place.name');
 // returns undefined if fails
 </pre>
 
@@ -66,23 +99,28 @@ obj.path('event.location.place.name');
 SteelToe(obj)('event')('location')('place')('name')
 </pre>
 
-<p>But the bigger issue is that it forces us to use a new API for object traversal. Introducing new APIs for fundamental operations has to be done carefully, and I think this path lookups don't quite strike the balance.</p>
-<p>(2) <a href="http://blog.osteele.com/posts/2007/12/cheap-monads">cheap monads</a></p>
-<p>A sort of variation on existence checking.</p>
+<p>Our example that tested the <code>try/catch</code> pattern looks much nicer now:</p>
+<pre class="prettyprint">
+$('#name').text(path(obj, 'event.location.place.name'));
+</pre>
+
+<p>Unfortunately, now we've introduced a new API for object traversal. Introducing new APIs for fundamental operations has to be done carefully, and I think path lookups don't quite strike the balance.</p>
+<h2>(4) cheap monads</h2>
+<p>From <a href="http://blog.osteele.com/posts/2007/12/cheap-monads">Oliver Steele's blog</a>, back in 2007:</p>
 <pre class="prettyprint">
 var name = 
   ((((obj||{}).event||{}).location||{}).place||{}).name;
 </pre>
 
-<p>Lots of syntactic noise. Requires funky paren balancing. A good technique if you want to impress someone reading your code but not the clearest.</p>
-<p>(3) <a href="https://github.com/chrislewis/monad.js">Monad.js</a></p>
+<p>This is a cool pattern which removes the repetition of <code>obj.</code> in the first method. However, it's also kind of an awkward idiom (in my opinion), requiring weird paren balancing.</p>
+<h2>(5) Monad.js</h2>
+<p>Why settle for cheap monads when we just just <a href="https://github.com/chrislewis/monad.js">attempt to simulate them completely</a>?!</p>
 <p>An interesting attempt to create an <code>either</code> construct that we can use to wrap the unsafe traversal operation. Unfortunately, getting our value out of the monad isn't so pretty.</p>
 <pre class="prettyprint">
 var unsafe_name = function () { 
   return obj.event.location.place.name; 
 }
 var safe_name = monad.eitherEx(unsafe_name);
-
 var name = safe_name.fold(
   function (error) {
     return 'some default value';
@@ -93,28 +131,27 @@ var name = safe_name.fold(
 );
 </pre>
 
-<p>While option (3), Monad.js, looks like the worst of the three, it got me thinking along an interesting line. The heart of the pattern is wrapping an unsafe operation in a function. Let's try a variation on this idea.</p>
-<h2>The Towel</h2>
+<h2>(6) <code>soak</code></h2>
+<p>While option (5), Monad.js, looks like the worst of all, it got me thinking along an interesting line. The heart of the pattern is wrapping an unsafe operation in a function. Let's try a variation on this idea.</p>
 <p>Let's say that I just want to soak up the error after a failed function call and return some default value. Well, that isn't too hard to do:</p>
 <pre class="prettyprint">
-// a towel soaks errors
-function towel = function (f, default) {
+function soak (f, otherwise) {
   try {
     return f();
   } catch (e) {
-    return default;
+    return otherwise;
   }
 }
 </pre>
 
 <p>If <code>f()</code> produces an error, the function returns the provided default value. Otherwise, it just returns <code>f()</code>.</p>
-<p>We can make it a bit more capable by optionally calling <code>default</code> if it happens to be a function:</p>
+<p>We can make it a bit more capable by optionally calling <code>otherwise</code> if it happens to be a function:</p>
 <pre class="prettyprint">  
-function towel = function (f, default) {
+function soak (f, otherwise) {
   try {
     return f();
   } catch (e) {
-    return _.result(default);
+    return _.result(otherwise);
   }
 }
 </pre>
@@ -125,25 +162,63 @@ function towel = function (f, default) {
 var getName = function () { 
   return obj.event.location.place.name; 
 }
-var name = towel(getName, 'not found');
+var name = soak(getName, 'not found');
 </pre>
 
-<p>We use the familiar old object dot notation to access our property. We don't introduce any obscure syntax, relying instead on tried and true Javascript functions. This has a nice bonus because as Javascript evolves, the little bit of syntactic noise we incur will disappear. Here's an implementation using the ES6 "fat arrow" syntax:</p>
+<p>This is nice, but what if we could wrap <code>soak</code> around a function to make it safe against errors. It would look something like this...</p>
 <pre class="prettyprint"> 
-var name = 
-  towel(() => obj.event.location.place.name, 'not found');
+var getName = soak(function () { 
+  return obj.event.location.place.name; 
+}, 'some default value');
+var name = getName();
 </pre>
 
-<p>Sources:</p>
-<ul>
-<li>One discussion on SO: <a href="http://stackoverflow.com/questions/10918488/testing-nested-objects-as-undefined-in-javascript](http://stackoverflow.com/questions/10918488/testing-nested-objects-as-undefined-in-javascript">http://stackoverflow.com/questions/10918488/testing-nested-objects-as-undefined-in-javascript](http://stackoverflow.com/questions/10918488/testing-nested-objects-as-undefined-in-javascript</a></li>
-<li>Another: <a href="http://stackoverflow.com/questions/2631001/javascript-test-for-existence-of-nested-object-key">http://stackoverflow.com/questions/2631001/javascript-test-for-existence-of-nested-object-key</a></li>
-<li>_.deep.js: <a href="https://gist.github.com/furf/3208381">https://gist.github.com/furf/3208381</a></li>
-<li>SteelToe: <a href="https://github.com/jclem/steeltoe">https://github.com/jclem/steeltoe</a></li>
-<li>chaijs pathval: <a href="https://github.com/chaijs/pathval">https://github.com/chaijs/pathval</a></li>
-<li>cheap monads (a nifty line of thought) <a href="http://blog.osteele.com/posts/2007/12/cheap-monads">http://blog.osteele.com/posts/2007/12/cheap-monads</a></li>
-<li>monad.js <a href="https://github.com/chrislewis/monad.js">https://github.com/chrislewis/monad.js</a></li>
-</ul>
+<p>Let's implement it:</p>
+<pre class="prettyprint">  
+function soak (f, otherwise) {  
+  return function () {
+    try {
+      return f.apply(this, arguments);
+    } catch (e) {
+      return _.result(otherwise);
+    }
+  };
+}
+</pre>
+
+<p>Now we we're good to go, even able to pass parameters to our soaked function as if nothing were out of the ordinary:</p>
+<pre class="prettyprint">  
+var appreciateName = soak(function (appreciation) { 
+  return obj.event.location.place.name + appreciation; 
+}, 'some default value');
+var name = appreciateName(" :)");
+</pre>
+
+<p>We can compose our new function like any other. In the <a href="http://stackoverflow.com/questions/10918488/testing-nested-objects-as-undefined-in-javascript">first linked SO article</a>, a backup lookup is tried if the first lookup fails. Here is the tangle of code:</p>
+<pre class="prettyprint">  
+if (formsetName && 
+  _.isUndefined(this.model.errors[formsetName][fieldName]) != true) {
+    $(fieldError).text(this.model.errors[formsetname][fieldName]);
+} else if (
+  typeof this.model.errors[fieldName] != "undefined"){
+    $(fieldError).text(this.model.errors[fieldName]);
+}
+</pre>
+
+<p>We can refactor it with nested <code>soak</code> calls:</p>
+<pre class="prettyprint">  
+var that = this;
+var getErrorText = soak(function () {
+  return that.model.errors[formsetname][fieldName];
+}, soak(function () {
+  return that.model.errors[fieldName];
+}, 'no error found'));
+
+$(fieldError).text(getErrorText());
+</pre>
+
+<p>The code here is just as dense as the previous, but it falls apart at the slightest touch. Most of the noise is creating anonymous functions, a syntax your brain ignores after working with Javascript for some time. The <code>return</code> statements stand out, putting the behavior of the function up front. Also, unlike quite a number of the above techniques, we get to use our familiar dot notation.</p>
+<p>This, then, is why I like <code>soak</code>: it leans on Javascript as a functional language.</p>
             </content>
         </entry>
     
@@ -493,10 +568,10 @@ Louis Agassiz Fuertes. His bird observations are famous:</p>
         <entry>
             <title type="html">NY Times - A Game of Shark and Minnow</title>
             <author><name></name></author>
-            <link href="/posts/20131017-sharkandminnow/"/>
+            <link href="/posts/20131027-sharkandminnow/"/>
             <updated></updated>
             <published></published>
-            <id>/posts/20131017-sharkandminnow/</id>
+            <id>/posts/20131027-sharkandminnow/</id>
             
             <content type="html">
               <p><img alt="Screen clip from NY Times" src="/static/images/20131027-shark.png" /></p>
