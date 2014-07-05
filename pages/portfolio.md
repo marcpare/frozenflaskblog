@@ -12,7 +12,7 @@ active_page: portfolio
   <div class="pure-u-1-3">
     <p>I can't share much about this project, which has been running since early 2013.</p>
 
-    <p>The product uses modern Javascript and machine learning. It has to do with photos.</p>
+    <p>The product uses modern Javascript (Backbone and Node.js) and machine learning. It has to do with photos.</p>
     
     <p>The client has raised a significant amount of financing as a result of my work, over 10x the amount spent on <em>small red tile</em> services.</p>
 

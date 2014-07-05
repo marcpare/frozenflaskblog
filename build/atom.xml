@@ -218,7 +218,8 @@ $(fieldError).text(getErrorText());
 </pre>
 
 <p>The code here is just as dense as the previous, but it falls apart at the slightest touch. Most of the noise is creating anonymous functions, a syntax your brain ignores after working with Javascript for some time. The <code>return</code> statements stand out, putting the behavior of the function up front. Also, unlike quite a number of the above techniques, we get to use our familiar dot notation.</p>
-<p>This, then, is why I like <code>soak</code>: it leans on Javascript as a functional language.</p>
+<p>For me, the <code>soak</code> pattern strikes the right balance of capability and clarity. But, for you, perhaps one of the other patterns reads better. </p>
+<p>And that's ok. The warts of the Javascript language are sometimes the best opportunity for revealing with this oft-misunderstood language's surprising power, for exploring and shaping interesting little computational mechanisms.</p>
             </content>
         </entry>
     

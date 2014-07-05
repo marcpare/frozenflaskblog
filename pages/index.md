@@ -3,14 +3,15 @@ active: index
 
 <h1><span id="tile"></span>small red tile</h1>
 
+<h2>software development for web ventures</h2>
 
-<h2>software development for web ventures</h2><div class="letter">
+<div class="letter">
     
    <p>I am a generalist developer with an emphasis on the web.</p>
 
    <p>Commonly, I work with startup founders and CEOs to translate product vision into working software.</p>
    
-   <p>I work primarily in Javascript, Python, and PHP.</p>
+   <p>I work primarily in Javascript and Python.</p>
   
   <h3>Major accomplishments</h3>
   
