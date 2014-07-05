@@ -177,7 +177,7 @@ https://github.com/yui/pure/blob/master/LICENSE.md
 html {
   color: #333;
   font: 18px 'Palatino', 'Palatino Linotype', 'Georgia', serif;
-  padding: 100px 0 0 40px;
+  padding: 0 0 0 40px;
   border-top: 5px solid #cc0000;
 }
 h2 {
@@ -192,7 +192,7 @@ h6 {
 h4 {
   font-weight: bold;
 }
-a {
+a:link {
   color: #03c;
 }
 a:visited {
@@ -202,21 +202,17 @@ a:hover {
   color: #c00;
   text-decoratin: underline;
 }
-/*
-a.fancy { color: #333; text-decoration: none; border-bottom: 1px dotted @primary; }
-a.fancy:hover { border-bottom: 1px solid @primary; background: #eee; }
-*/
-.container {
-  width: 850px;
-  margin-left: 140px;
+.container,
+.top {
+  width: 960px;
+  margin: 0 auto;
+}
+.gutter-right {
+  padding-right: 40px;
 }
 .title-small {
-  margin-left: -23px;
+  display: none;
   font-size: .9em;
-}
-.letter {
-  width: 500px;
-  line-height: 1.4em;
 }
 em {
   font-weight: bold;
@@ -239,9 +235,8 @@ li {
   clear: both;
   padding-top: 50px;
 }
-.left {
-  float: left;
-  width: 140px;
+.top {
+  height: 80px;
 }
 #tile {
   background: white;
@@ -259,14 +254,15 @@ li {
 }
 .menu {
   list-style: none;
-  padding-left: 15px;
   font-size: .9em;
 }
 .menu li {
+  float: left;
   line-height: 1em;
   text-transform: uppercase;
   margin-bottom: 10px;
   padding-bottom: 0;
+  padding-right: 20px;
 }
 .menu a {
   text-decoration: none;
@@ -382,4 +378,21 @@ li {
 }
 img.full {
   width: 100%;
+}
+h4 {
+  margin: 5px 0;
+  text-transform: uppercase;
+}
+.notes-header {
+  color: #aaa;
+  margin-top: 40px;
+  font-weight: normal;
+}
+.entry {
+  margin-bottom: 20px;
+  font-size: 0.8em;
+}
+img.padded {
+  display: inline-block;
+  margin: 30px 0;
 }

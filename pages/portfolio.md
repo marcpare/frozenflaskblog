@@ -4,8 +4,6 @@ active_page: portfolio
 
 <h1>Portfolio</h1>
 
-<p>Software design and development. A jolt of activation energy to innovative ideas.</p>
-
 <div class="project-major">
   <h3>Stealth Mode Startup</h3>
   <div class="pure-g">
@@ -25,7 +23,7 @@ active_page: portfolio
 </div>
 
 <div class="project-major">
-  <h3>IFC eTool</h3>
+  <h3><a name="ifc">IFC eTool</a></h3>
   <div class="pure-g">
   <div class="pure-u-1-3">
     <p>A web and desktop application for awareness-raising of new energy financing options for the building and commercial sectors in Southeast Asia.</p>
@@ -49,7 +47,7 @@ active_page: portfolio
 </div>
 
 <div class="project-major">
-  <h3>Microsoft Imagine Cup</h3>
+  <h3><a name="mic">Microsoft Imagine Cup</a></h3>
   <div class="pure-g">
   <div class="pure-u-1-3">
     <p>A one-year quest to save the world with a digital narrative. The app won first place worldwide against thousands of international competitors.</p>

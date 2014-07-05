@@ -15,18 +15,16 @@
     {% set menu_items = [
         ('/index', 'index', 'home'),
         ('/portfolio', 'portfolio', 'portfolio'),
-        ('/blog', 'blog', 'blog'),
-        ('/mission', 'mission', 'mission'),
         ('/contact', 'contact', 'contact'),
         ('https://github.com/marcpare?tab=repositories', 'github', 'github')
       ] -%}
     {% set active_page = page.meta.active_page|default('index')-%}
 
-    {% if active_page != "index" %}
+    <div class="top">    
+      {% if active_page != "index" %}
       <h2 class="title-small"><span id="tile"></span>small red tile</h2>
-    {% endif %}
+      {% endif %}
 
-    <div class="left">    
       <ul class="menu">
       {% for href, id, caption in menu_items %}
         <li {% if id == active_page %} class="active"{% endif %}>

@@ -8,31 +8,28 @@ https://github.com/yui/pure/blob/master/LICENSE.md
 
 @primary: #c00;
 @left-col-width: 140px;
-html { color: #333; font: 18px 'Palatino', 'Palatino Linotype', 'Georgia', serif; padding: 100px 0 0 40px; border-top: 5px solid @primary;}
+html { color: #333; font: 18px 'Palatino', 'Palatino Linotype', 'Georgia', serif; padding: 0 0 0 40px; border-top: 5px solid @primary;}
 h2 { font-weight: normal; }
 h3, h4, h5, h6 { font-weight: normal;}
 h4 { font-weight: bold; }
-a { color: #03c; }
+a:link { color: #03c; }
 a:visited { color: #639; }
 a:hover { color: #c00; text-decoratin: underline; }
-/*
-a.fancy { color: #333; text-decoration: none; border-bottom: 1px dotted @primary; }
-a.fancy:hover { border-bottom: 1px solid @primary; background: #eee; }
-*/
-.container { width: 850px; margin-left: @left-col-width; }
-.title-small { margin-left: -23px; font-size: .9em; }
-.letter { width: 500px; line-height: 1.4em; }
+
+.container, .top { width: 960px; margin: 0 auto; }
+.gutter-right { padding-right: 40px; }
+.title-small { display: none; font-size: .9em; }
 em { font-weight: bold; }
 ul {margin-left: -40px;}
 li { line-height: 1.4em; }
 .specialties {float: left; width: 300px; }
 .pastwork { float: left; width: 500px; }
 .portfolio { clear:both; padding-top: 50px;  }
-.left { float: left; width: @left-col-width; }
+.top { height: 80px;  } 
 #tile { background: white; padding: 0; line-height: 0; width: 80px; height: 80px; }
 #tile { display: inline-block; background: @primary; width: 0.5em; height: 0.5em; margin-right: 5px; }
-.menu { list-style: none; padding-left: 15px; font-size: .9em; }
-.menu li { line-height: 1em; text-transform: uppercase; margin-bottom: 10px; padding-bottom: 0; }
+.menu { list-style: none; font-size: .9em; }
+.menu li { float: left; line-height: 1em; text-transform: uppercase; margin-bottom: 10px; padding-bottom: 0; padding-right: 20px; }
 .menu a { text-decoration: none; color: #333;}
 .menu a:hover { color: @primary; }
 .menu .active { font-weight: bold; }
@@ -61,3 +58,8 @@ li { line-height: 1.4em; }
 .screenshots img { }
 .project-minor { margin-bottom: 60px; }
 img.full { width: 100%; }
+
+h4 { margin: 5px 0; text-transform: uppercase; }
+.notes-header { color: #aaa; margin-top: 40px; font-weight: normal; }
+.entry { margin-bottom: 20px; font-size: 0.8em;}
+img.padded { display: inline-block; margin: 30px 0; }
