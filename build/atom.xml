@@ -538,7 +538,7 @@ return model.equationTemplate(
 <p>In this case, the yak was Mongodb, and shaving it involved debugging its broken installer on my recently updated Macbook. After a half hour of this, I gave up and ported the API in the exercise to use a tiny file-based data store called <a href="https://github.com/jtsage/nodejs-microdb">MicroDB</a>.</p>
 <p>MicroDB was less than 200 lines of code, doesn't seem to have been updated in a year, and did exactly as much as I needed it to. It took about 10 minutes to port the code. </p>
 <p>I uploaded the ported code to my Github accounts. There may be some sharp edges, but it implements all the major features (add, edit, delete) <a href="https://github.com/marcpare/backbone-fundamental-library-feweryaks">Github</a></p>
-<p>I am quite curious now how you would go about building a NodeJS app with a file-based data store. This is a fantastically useful pattern for prototyping or smaller sites. I couldn't find any simple, convenient ways to do this. I'll be on the lookout. </p>
+<p>I am quite curious now how you would go about building a NodeJS app with a file-based data store. This is a fantastically useful pattern for prototyping or smaller sites. I couldn't find any simple, convenient ways to do this. I'll be on the lookout. EDIT (2014-06-02): Found one: https://github.com/moserrya/knod</p>
             </content>
         </entry>
     
