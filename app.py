@@ -15,7 +15,9 @@ def load_posts():
 
 @app.route('/')
 def index():
-  return page('index')
+  posts = {post.path: post for post in load_posts()}
+  page = pages.get_or_404('index')
+  return render_template('index.html', page=page, posts=posts)
 
 @app.route('/atom.xml')
 def atom():
