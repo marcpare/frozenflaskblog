@@ -18,6 +18,77 @@
 
     
         <entry>
+            <title type="html">Panoramas, Python, &amp; Pigeons</title>
+            <author><name></name></author>
+            <link href="/posts/20140705-panorama/"/>
+            <updated></updated>
+            <published></published>
+            <id>/posts/20140705-panorama/</id>
+            
+            <content type="html">
+              <p>What I thought would be a few minutes of poking on OpenCV to stitch some images together turned out to be a week-long dive into computer vision, linear algebra, geometry, eventually surfacing to meet our friend, the pigeon.</p>
+<p>First, let's do a basic implementation of panorama stitching in Python. There's a great set of <a href="http://richardt.name/teaching/supervisions/vision-2011/practical/">practical exercises on Open CV</a> by Dr. Christian Richardt.</p>
+<p>I did each of the exercises in item 3, "Panorama stitching". You can find <a href="https://github.com/marcpare/stitch">the full repo on Github</a>. The repo includes a Vagrantfile and a shell script so that you can get OpenCV running without much yak shaving.</p>
+<p>If you just want to solve the stitching problem, you can actually ignore the tricky part of this, <code>calculate_size</code>. However, if you happen to want to stitch more than two images together, you need to have a robust offset and dimensions calculation.</p>
+<p>This has some fiddly details, and it takes a bit of linear algebra. <a href="https://github.com/marcpare/stitch/blob/master/crichardt/stitch.py">The code</a> is probably the clearest way to walk through this if you want to know the details. </p>
+<p>One tricky bit is that when you apply the transformation that lines up one image with the other, you end up with a combined image that is larger. To get the images placed properly on the bigger image, you need to offset them. </p>
+<p><img alt="Offset" src="/static/images/20140705-offset-640.jpg" /></p>
+<p>For placing Image 2 properly, the offset has to be combined with the transformation (homography) matrix. For a translation (OX, OY), the transformation matrix is...</p>
+<p><img alt="Transform" src="/static/images/20140705-transform.jpg" /></p>
+<p>We combine it with the homography matrix via matrix multiplication:  </p>
+<p>homography = translation * homography</p>
+<p>The resulting code should be pretty clear now:</p>
+<pre class="prettyprint">
+translation = np.matrix([
+  [1.0, 0.0, ox],
+  [0.0, 1.0, oy],
+  [0.0, 0.0, 1.0]
+])
+
+homography = translation * homography
+</pre>
+
+<p>Nice!</p>
+<hr />
+<p>Eventually, I get a panorama of the view outside my office stitched together:</p>
+<p><img alt="Pano" src="/static/images/20140705-pano1.jpg" /></p>
+<p>Then I stitch another:</p>
+<p><img alt="Pano" src="/static/images/20140705-pano2.jpg" /></p>
+<p>Now I'm getting confident. Let's try to make a panorama of my bookcase. I'm going to do something different this time. I'm going to walk right to left, snapping pictures as I go. I've done all this fancy linear algebra which will <em>surely</em> take care of everything automatically</p>
+<p><img alt="Buggy books" src="/static/images/20140705-coolbug.jpg" /></p>
+<p>Uh oh. Maybe if I change this one thing...</p>
+<p><img alt="bug 2" src="/static/images/20140705-bug3.png" /></p>
+<p>Uh. Surely this change will fix it.</p>
+<p><img alt="bug 2" src="/static/images/20140705-bug2.jpg" /></p>
+<p>!!!</p>
+<p>(no exaggerating, these are real bugs that I encountered.)</p>
+<p>After many hours of head scratching, I realize that I have made a major conceptual mistake. It turns out there's a fundamental difference between the two images I was trying to create. One was a "panorama" while the other was a "mosaic". </p>
+<p>It's a panorama if you stand in one place and only rotate the camera.</p>
+<p>It's a mosaic if you translate the camera.</p>
+<p>This is important because you can stitch panorama photos fairly easily using the homography matrix. That's what we did above.</p>
+<p>Unfortunately, for mosaics, this doesn't work. There isn't an affine transform that can relate two pictures in a mosaic.</p>
+<p>The argument is as follows: as I move from left to right, I gradually see parts of books that I couldn't see before (this is parallax in action). How could you use an affine transformation to line these up? You can't without some knowledge of the 3D geometry of the subject, which we can't derive from just two pictures.</p>
+<p><img alt="Buggy books" src="/static/images/20140705-01.jpg" />
+<img alt="Buggy books" src="/static/images/20140705-02.jpg" /></p>
+<p>When you're only rotating the camera, this doesn't matter. An object that shows up in both pictures will look the same. You can verify this by rotating your head around your neck right now. Focus on an object anywhere in the room. As long as you're only rotating your head, the object will look exactly the same no matter what position your head happens to be in. </p>
+<p>Fascinating, right? There's something very different about moving around (translation) versus spinning around (rotation).</p>
+<p>Consequently, there isn't a nice way to automate stitching mosaics together. In the posts by other professionals that do this, I found the advice: <a href="http://dinosaurpalaeo.wordpress.com/2013/01/20/using-hugin-part-4-mosaic-images/">take a bunch of pictures</a>.</p>
+<p>But what if I don't necessarily want to stitch the images together? Here's a variation I came up with to visualize my book case.</p>
+<ul>
+<li>Use feature detection to find alignment points in the images. </li>
+<li>Calculate a scale+translation matrix to align them.</li>
+<li>As you hover over the images, reveal the image nearest your cursor.</li>
+</ul>
+<iframe src="http://smallredtile.com/align/" width=640 height=420></iframe>
+
+<p><a href="https://github.com/marcpare/stitch/blob/master/affine/affine.py">The code</a> shows how I tweaked the affine transformation computation to use this new scheme. </p>
+<hr />
+<p>Panoramas and mosaics may appear similar but are actually be quite different in character; there is surprising nuance to perception. As a result, there are many knobs and dials in image stitching algorithms. To produce useful results, you need to shape and tune the algorithms to fit your application; it's not one-size-fits-all. </p>
+<p>It turns out that pigeons use the parallax effect that stymies homography calculations to their advantage: with non-overlapping fields of vision from the eyes on the sides of their heads, they bob their heads to get two different images at slightly different perspectives, allowing them to calculate depth. Sometimes the challenges encountered in one approach reveal an opportunity for another application.</p>
+            </content>
+        </entry>
+    
+        <entry>
             <title type="html">A Sixth Pattern for Safe Javascript Object Traversal</title>
             <author><name></name></author>
             <link href="/posts/20140514-safe/"/>
